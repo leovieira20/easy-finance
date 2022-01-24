@@ -1,0 +1,22 @@
+name: easyfinance
+
+extensions:
+- name: seq
+  logPath: ./.logs
+
+- name: dapr
+  components-path: "./dapr/components/"
+
+services:
+- name: web
+  project: Web/Web.csproj
+  bindings:
+    - port: 50000
+- name: redis
+  image: redis
+  bindings:
+    - port: 6379
+- name: zipkin
+  image: openzipkin/zipkin
+  bindings:
+    - port: 9411
