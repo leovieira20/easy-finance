@@ -1,4 +1,4 @@
-namespace Web;
+namespace EasyFinance.Web;
 
 public class WeatherForecast
 {

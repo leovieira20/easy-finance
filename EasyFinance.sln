@@ -1,6 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{24467F0F-AB5E-4AEE-9C96-916134719360}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Web", "EasyFinance.Web\EasyFinance.Web.csproj", "{24467F0F-AB5E-4AEE-9C96-916134719360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Domain", "EasyFinance.Domain\EasyFinance.Domain.csproj", "{CDCFC417-1C07-4D4C-859F-468B15644A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Domain.Tests.Unit", "EasyFinance.Domain.Tests.Unit\EasyFinance.Domain.Tests.Unit.csproj", "{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application", "EasyFinance.Application\EasyFinance.Application.csproj", "{E15B52A5-AF0E-4E63-A3F1-5B199343916A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application.Tests.Acceptance", "EasyFinance.Application.Tests.Acceptance\EasyFinance.Application.Tests.Acceptance.csproj", "{F0AF5209-2821-4B31-B294-2EF42DD7FD96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +20,21 @@ Global
 		{24467F0F-AB5E-4AEE-9C96-916134719360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24467F0F-AB5E-4AEE-9C96-916134719360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24467F0F-AB5E-4AEE-9C96-916134719360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCFC417-1C07-4D4C-859F-468B15644A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCFC417-1C07-4D4C-859F-468B15644A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCFC417-1C07-4D4C-859F-468B15644A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCFC417-1C07-4D4C-859F-468B15644A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15B52A5-AF0E-4E63-A3F1-5B199343916A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15B52A5-AF0E-4E63-A3F1-5B199343916A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15B52A5-AF0E-4E63-A3F1-5B199343916A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15B52A5-AF0E-4E63-A3F1-5B199343916A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0AF5209-2821-4B31-B294-2EF42DD7FD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0AF5209-2821-4B31-B294-2EF42DD7FD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0AF5209-2821-4B31-B294-2EF42DD7FD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0AF5209-2821-4B31-B294-2EF42DD7FD96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
