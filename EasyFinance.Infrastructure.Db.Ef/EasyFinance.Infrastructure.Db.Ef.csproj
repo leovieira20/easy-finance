@@ -10,8 +10,4 @@
       <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="MediatR" Version="10.0.1" />
-    </ItemGroup>
-
 </Project>
