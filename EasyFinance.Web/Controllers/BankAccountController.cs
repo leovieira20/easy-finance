@@ -26,6 +26,10 @@ public class BankAccountController : ControllerBase
         var response = await _mediator.Send(new RegisterBankAccountCommand(request.Name));
 
         //TODO: use Mapster.Tool whenever it's ready for net6
-        return response.Adapt<BankAccountPublicModel>();
+        return new BankAccountPublicModel
+        {
+            Id = response.Id.Value,
+            Name = response.Name
+        };
     }
 }

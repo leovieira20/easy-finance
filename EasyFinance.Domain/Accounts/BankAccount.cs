@@ -15,6 +15,12 @@ public class BankAccount
         };
     }
 
+    private BankAccount()
+    {
+        Id = BankAccountId.New();
+    }
+
+    public BankAccountId Id { get; }
     public string Status { get; private init; } = null!;
-    public string Name { get; init; } = null!;
+    public string Name { get; private init; } = null!;
 }

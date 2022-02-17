@@ -34,5 +34,6 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
         var dto = await response.Content.ReadFromJsonAsync<BankAccountPublicModel>();
 
         dto?.Name.Should().Be(accountName);
+        dto?.Id.Should().NotBeEmpty();
     }
 }
