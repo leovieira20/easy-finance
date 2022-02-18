@@ -1,7 +1,7 @@
+using EasyFinance.Application.Account.AddFundsToBankAccount;
 using EasyFinance.Application.Account.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
 using EasyFinance.Web.Models.Output;
-using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +30,18 @@ public class BankAccountController : ControllerBase
         {
             Id = response.Id.Value,
             Name = response.Name
+        };
+    }
+    
+    [HttpPost("AddFunds")]
+    public async Task<BankAccountSummaryPublicModel> AddFunds([FromBody] AddFundsToBankAccountRequest request)
+    {
+        var response = await _mediator.Send(new AddFundsToBankAccountCommand(request.BankAccountId, request.Amount));
+
+        //TODO: use Mapster.Tool whenever it's ready for net6
+        return new BankAccountSummaryPublicModel
+        {
+            Balance = response.Balance
         };
     }
 }

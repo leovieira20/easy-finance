@@ -1,9 +1,6 @@
 using System;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Web.Controllers;
-using EasyFinance.Web.Models.Input;
-using EasyFinance.Web.Models.Output;
+using EasyFinance.Web.Tests.Integration.Helpers.Clients;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
@@ -20,20 +17,29 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     }
 
     [Fact]
-    public async Task RegistersAccount()
+    public async Task RegisterAccount()
     {
         var client = _factory.CreateClient();
 
         var accountName = Guid.NewGuid().ToString();
         
-        var response = await client.PostAsJsonAsync("/BankAccount/Register", new RegisterBankAccountRequest
-        {
-            Name = accountName
-        });
+        var response = await BankAccountClient.RegisterBankAccountAsync(client, accountName);
 
-        var dto = await response.Content.ReadFromJsonAsync<BankAccountPublicModel>();
+        response?.Name.Should().Be(accountName);
+        response?.Id.Should().NotBeEmpty();
+    }
+    
+    [Fact]
+    public async Task AddFundsToAccount()
+    {
+        var client = _factory.CreateClient();
 
-        dto?.Name.Should().Be(accountName);
-        dto?.Id.Should().NotBeEmpty();
+        var accountName = Guid.NewGuid().ToString();
+        
+        var response = await BankAccountClient.RegisterBankAccountAsync(client, accountName);
+
+        var summary = await BankAccountClient.AddFundsToAccountAsync(client, response!.Id, 1);
+
+        summary.Balance.Should().Be(1);
     }
 }

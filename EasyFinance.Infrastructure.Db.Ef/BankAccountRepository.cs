@@ -8,4 +8,9 @@ public class BankAccountRepository : IBankAccountRepository
     {
         return Task.CompletedTask;
     }
+
+    public Task<BankAccount> GetAsync(BankAccountId bankAccountId)
+    {
+        return Task.FromResult(BankAccount.Create(Guid.NewGuid().ToString()));
+    }
 }
