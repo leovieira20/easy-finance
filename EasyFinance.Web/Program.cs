@@ -1,6 +1,6 @@
 using EasyFinance.Application.Account.RegisterBankAccount;
 using EasyFinance.Domain.Accounts;
-using EasyFinance.Infrastructure.Db.Ef;
+using EasyFinance.Infrastructure.Db.SqlServer;
 using MediatR;
 using Serilog;
 
@@ -38,6 +38,9 @@ if (app.Environment.IsDevelopment())
 app.MapControllers();
 app.Run();
 
-public partial class Program
+namespace EasyFinance.Web
 {
+    public partial class Program
+    {
+    }
 }

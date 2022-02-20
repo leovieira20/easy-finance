@@ -8,22 +8,16 @@ namespace EasyFinance.Application.Tests.Acceptance.Steps;
 [Binding]
 public class RegisterAccountStepDefinitions
 {
-    private readonly ScenarioContext _scenarioContext;
-    private IBankAccountRepository _bankAccountRepository = null!;
-    private RegisterBankAccountCommandHandler _sut = null!;
+    private readonly IBankAccountRepository _bankAccountRepository;
+    private readonly RegisterBankAccountCommandHandler _sut;
+    private BankAccountDto _account = null!;
 
-    public RegisterAccountStepDefinitions(ScenarioContext scenarioContext)
+    public RegisterAccountStepDefinitions(ScenarioContext context)
     {
-        _scenarioContext = scenarioContext;
-    }
-
-    [BeforeScenario]
-    public void Setup()
-    {
-        _bankAccountRepository = Substitute.For<IBankAccountRepository>();
+        _bankAccountRepository = context.Get<IBankAccountRepository>(nameof(IBankAccountRepository));
         _sut = new RegisterBankAccountCommandHandler(_bankAccountRepository);
     }
-    
+
     [Given(@"I want to keep track of my finances")]
     public void GivenIWantToKeepTrackOfMyFinances()
     {
@@ -33,17 +27,15 @@ public class RegisterAccountStepDefinitions
     [When(@"I register an account")]
     public async Task WhenIRegisterAnAccount()
     {
-        var account = await _sut.Handle(new RegisterBankAccountCommand(Guid.NewGuid().ToString()), CancellationToken.None);
-        
-        _scenarioContext.Add(nameof(account), account);
+        _account = await _sut.Handle(new RegisterBankAccountCommand(Guid.NewGuid().ToString()), CancellationToken.None);
     }
 
     [Then(@"the account should be available")]
     public void ThenTheAccountShouldBeAvailable()
     {
-        var account = _scenarioContext.Get<BankAccount>("account");
-        account.Status.Should().Be(BankAccountStatus.Enabled);
+        _account.Status.Should().Be(BankAccountStatus.Enabled);
 
-        _bankAccountRepository.Received(1).CreateAsync(account);
+        _bankAccountRepository.Received(1)
+            .CreateAsync(Arg.Any<BankAccount>());
     }
 }

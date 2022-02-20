@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace EasyFinance.Application.Tests.Acceptance.Features
+namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Registration
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,19 +19,21 @@ namespace EasyFinance.Application.Tests.Acceptance.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AddFundsToBankAccountFeature : object, Xunit.IClassFixture<AddFundsToBankAccountFeature.FixtureData>, System.IDisposable
+    [Xunit.TraitAttribute("Category", "bankAccount")]
+    public partial class RegisterAccountFeature : object, Xunit.IClassFixture<RegisterAccountFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = ((string[])(null));
+        private string[] _featureTags = new string[] {
+                "bankAccount"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "AddFundsToBankAccount.feature"
+#line 1 "RegisterAccount.feature"
 #line hidden
         
-        public AddFundsToBankAccountFeature(AddFundsToBankAccountFeature.FixtureData fixtureData, EasyFinance_Application_Tests_Acceptance_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public RegisterAccountFeature(RegisterAccountFeature.FixtureData fixtureData, EasyFinance_Application_Tests_Acceptance_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +42,8 @@ namespace EasyFinance.Application.Tests.Acceptance.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "AddFundsToBankAccount", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/BankAccount/Registration", "RegisterAccount", null, ProgrammingLanguage.CSharp, new string[] {
+                        "bankAccount"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,16 +83,16 @@ namespace EasyFinance.Application.Tests.Acceptance.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add funds to existing account")]
-        [Xunit.TraitAttribute("FeatureTitle", "AddFundsToBankAccount")]
-        [Xunit.TraitAttribute("Description", "Add funds to existing account")]
-        public virtual void AddFundsToExistingAccount()
+        [Xunit.SkippableFactAttribute(DisplayName="Register Account")]
+        [Xunit.TraitAttribute("FeatureTitle", "RegisterAccount")]
+        [Xunit.TraitAttribute("Description", "Register Account")]
+        public virtual void RegisterAccount()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add funds to existing account", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 3
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register Account", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 4
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -108,14 +111,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
- testRunner.Given("existing bank account with no balance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 5
- testRunner.When("I add 1 to the bank account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Given("I want to keep track of my finances", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.Then("the new balance should be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.When("I register an account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 7
+        testRunner.Then("the account should be available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -128,12 +131,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                AddFundsToBankAccountFeature.FeatureSetup();
+                RegisterAccountFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AddFundsToBankAccountFeature.FeatureTearDown();
+                RegisterAccountFeature.FeatureTearDown();
             }
         }
     }

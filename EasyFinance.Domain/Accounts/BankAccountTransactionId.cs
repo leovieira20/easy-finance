@@ -3,4 +3,4 @@ using StronglyTypedIds;
 namespace EasyFinance.Domain.Accounts;
 
 [StronglyTypedId]
-public partial struct BankAccountId { }
+public partial struct BankAccountTransactionId {}

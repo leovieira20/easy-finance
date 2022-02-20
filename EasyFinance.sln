@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application.Tests.Acceptance", "EasyFinance.Application.Tests.Acceptance\EasyFinance.Application.Tests.Acceptance.csproj", "{F0AF5209-2821-4B31-B294-2EF42DD7FD96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Infrastructure.Db.Ef", "EasyFinance.Infrastructure.Db.Ef\EasyFinance.Infrastructure.Db.Ef.csproj", "{B1B2E9A0-DDCC-4B35-AB92-BC489F9D9263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Infrastructure.Db.SqlServer", "EasyFinance.Infrastructure.Db.SqlServer\EasyFinance.Infrastructure.Db.SqlServer.csproj", "{B1B2E9A0-DDCC-4B35-AB92-BC489F9D9263}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Web.Tests.Integration", "EasyFinance.Web.Tests.Integration\EasyFinance.Web.Tests.Integration.csproj", "{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852}"
 EndProject

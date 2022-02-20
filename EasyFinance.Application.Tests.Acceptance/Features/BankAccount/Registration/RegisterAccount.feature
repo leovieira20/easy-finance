@@ -1,3 +1,4 @@
+@bankAccount
 Feature: RegisterAccount
 
     Scenario: Register Account

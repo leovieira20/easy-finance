@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.Account.RegisterBankAccount;
 
-public class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAccountCommand, BankAccount>
+public class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAccountCommand, BankAccountDto>
 {
     private readonly IBankAccountRepository _repository;
 
@@ -12,12 +12,17 @@ public class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAcc
         _repository = repository;
     }
 
-    public async Task<BankAccount> Handle(RegisterBankAccountCommand request, CancellationToken cancellationToken)
+    public async Task<BankAccountDto> Handle(RegisterBankAccountCommand request, CancellationToken cancellationToken)
     {
         var bankAccount = BankAccount.Create(request.BankAccountName);
 
         await _repository.CreateAsync(bankAccount);
         
-        return bankAccount;
+        return new BankAccountDto
+        {
+            Id = bankAccount.Id.Value,
+            Name = bankAccount.Name,
+            Status = bankAccount.Status
+        };
     }
 }

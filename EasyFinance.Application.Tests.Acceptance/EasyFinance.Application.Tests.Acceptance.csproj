@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
         <PackageReference Include="NSubstitute" Version="4.3.0" />
         <PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.15">
           <PrivateAssets>all</PrivateAssets>
@@ -30,6 +30,27 @@
     <ItemGroup>
       <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
       <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Features\BankAccount\TransactionHistory\ShowBankAccountTransactionHistory.feature.cs">
+        <DependentUpon>ShowBankAccountTransactionHistory.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Features\BankAccount\Registration\RegisterAccount.feature.cs">
+        <DependentUpon>RegisterAccount.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+      <Compile Update="Features\BankAccount\Transactions\RegisterDepositToBankAccount.feature.cs">
+        <DependentUpon>AddFundsToBankAccount.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
     </ItemGroup>
 
 </Project>

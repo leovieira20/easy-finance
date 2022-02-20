@@ -1,5 +1,6 @@
 using System;
 using EasyFinance.Domain.Accounts;
+using FluentAssertions;
 using Xunit;
 
 namespace EasyFinance.Domain.Tests.Unit.Entities;
@@ -18,5 +19,21 @@ public class BankAccountTests
     public void CannotCreateWithEmptyName(string name)
     {
         Assert.Throws<ArgumentException>(() => BankAccount.Create(name));
+    }
+
+    [Fact]
+    public void WhenAccountIsCreatedThenBalanceIsZero()
+    {
+        var bankAccount = BankAccount.Create(Guid.NewGuid().ToString());
+
+        bankAccount.Balance.Should().Be(0);
+    }
+
+    [Fact]
+    public void WhenAccountIsCreatedThenThereAreNoTransactions()
+    {
+        var bankAccount = BankAccount.Create(Guid.NewGuid().ToString());
+
+        bankAccount.Transactions.Should().BeEmpty();
     }
 }

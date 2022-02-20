@@ -10,4 +10,8 @@
       <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+    </ItemGroup>
+
 </Project>

@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mapster" Version="7.2.0" />
+        <PackageReference Include="Mapster" Version="7.3.0" />
         <PackageReference Include="MediatR" Version="10.0.1" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
         <PackageReference Include="Serilog" Version="2.10.0" />
@@ -24,8 +24,26 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
+    <!-- Mapster code gen -->
+    <ItemGroup>
+        <Generated Include="**\*.g.cs" />
+    </ItemGroup>
+    <Target Name="Mapster" AfterTargets="AfterBuild">
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet tool restore" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster model -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot; -r" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster extension -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot;" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster mapper -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot;" />
+    </Target>
+    <Target Name="CleanGenerated">
+        <Delete Files="@(Generated)" />
+    </Target>
+
     <ItemGroup>
         <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
-        <ProjectReference Include="..\EasyFinance.Infrastructure.Db.Ef\EasyFinance.Infrastructure.Db.Ef.csproj" />
+        <ProjectReference Include="..\EasyFinance.Infrastructure.Db.SqlServer\EasyFinance.Infrastructure.Db.SqlServer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\Output" />
     </ItemGroup>
 </Project>
