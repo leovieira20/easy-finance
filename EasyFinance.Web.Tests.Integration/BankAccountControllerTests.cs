@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using EasyFinance.Web.Tests.Integration.Helpers.Clients;
@@ -17,25 +18,53 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
         _client = factory.CreateClient();
     }
 
+    [Theory]
+    [InlineData(default)]
+    [InlineData(" ")]
+    public async Task RegisterAccount_InvalidName(string accountName)
+    {
+        var (_, response) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
     [Fact]
     public async Task RegisterAccount()
     {
         var accountName = Guid.NewGuid().ToString();
         
-        var response = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var (bankAccount, _) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
 
-        response?.Name.Should().Be(accountName);
-        response?.Id.Should().NotBeEmpty();
+        bankAccount?.Name.Should().Be(accountName);
+        bankAccount?.Id.Should().NotBeEmpty();
+    }
+    
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public async Task RegisterDepositToAccount_InvalidAmount(decimal amount)
+    {
+        var (_, response) = await BankAccountClient.RegisterDepositToAccountAsync(_client, Guid.NewGuid(), amount);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
     
     [Fact]
-    public async Task AddFundsToAccount()
+    public async Task RegisterDepositToAccount_InvalidBankAccountId()
+    {
+        var (_, response) = await BankAccountClient.RegisterDepositToAccountAsync(_client, default, 1);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+    
+    [Fact]
+    public async Task RegisterDepositToAccount()
     {
         var accountName = Guid.NewGuid().ToString();
         
-        var response = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var (bankAccount, _) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
 
-        var summary = await BankAccountClient.RegisterDepositToAccountAsync(_client, response!.Id, 1);
+        var (summary, _) = await BankAccountClient.RegisterDepositToAccountAsync(_client, bankAccount!.Id, 1);
 
         summary!.Balance.Should().Be(1);
     }

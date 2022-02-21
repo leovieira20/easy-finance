@@ -18,18 +18,24 @@ public class BankAccountController : ControllerBase
     }
 
     [HttpPost("Register")]
-    public async Task<BankAccountDtoPublicModel> RegisterAccount([FromBody] RegisterBankAccountRequest request)
+    public async Task<IActionResult> RegisterAccount([FromBody] RegisterBankAccountRequest request)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+        
         var response = await _mediator.Send(new RegisterBankAccountCommand(request.Name));
 
-        return response.AdaptToPublicModel();
+        return Ok(response.AdaptToPublicModel());
     }
     
     [HttpPost("RegisterDeposit")]
-    public async Task<BankAccountSummaryDtoPublicModel> RegisterDeposit([FromBody] RegisterDepositToBankAccountRequest request)
+    public async Task<IActionResult> RegisterDeposit([FromBody] RegisterDepositToBankAccountRequest request)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+        
         var response = await _mediator.Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount));
 
-        return response.AdaptToPublicModel();
+        return Ok(response.AdaptToPublicModel());
     }
 }

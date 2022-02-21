@@ -17,10 +17,13 @@ public class BankAccountTransactionController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IList<BankAccountTransactionDtoPublicModel>> Get([FromQuery] ShowBankAccountTransactionsRequest request)
+    public async Task<IActionResult> Get([FromQuery] ShowBankAccountTransactionsRequest request)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+        
         var transactions = await _mediator.Send(new ShowBankAccountTransactionHistoryCommand(request.BankAccountId));
 
-        return transactions.Select(x => x.AdaptToPublicModel()).ToList();
+        return Ok(transactions.Select(x => x.AdaptToPublicModel()).ToList());
     }
 }

@@ -12,7 +12,7 @@ public static class BankAccountClient
 {
     private const string BaseUrl = "/BankAccount";
 
-    public static async Task<BankAccountDtoPublicModel?> RegisterBankAccountAsync(HttpClient client, string accountName)
+    public static async Task<(BankAccountDtoPublicModel? bankAccount, HttpResponseMessage response)> RegisterBankAccountAsync(HttpClient client, string accountName)
     {
         var bodyParams = new RegisterBankAccountRequest
         {
@@ -20,11 +20,15 @@ public static class BankAccountClient
         };
         
         var response = await client.PostAsJsonAsync($"{BaseUrl}/Register", bodyParams);
-        
-        return await response.Content.ReadFromJsonAsync<BankAccountDtoPublicModel>();
+
+        return response.IsSuccessStatusCode switch
+        {
+            false => (null, response),
+            _ => (await response.Content.ReadFromJsonAsync<BankAccountDtoPublicModel>(), response)
+        };
     }
 
-    public static async Task<BankAccountSummaryDtoPublicModel?> RegisterDepositToAccountAsync(HttpClient client, Guid bankAccountId, decimal amount)
+    public static async Task<(BankAccountSummaryDtoPublicModel? summary, HttpResponseMessage response)> RegisterDepositToAccountAsync(HttpClient client, Guid bankAccountId, decimal amount)
     {
         var response = await client.PostAsJsonAsync($"{BaseUrl}/RegisterDeposit", new RegisterDepositToBankAccountRequest
         {
@@ -32,6 +36,10 @@ public static class BankAccountClient
             Amount = amount
         });
 
-        return await response.Content.ReadFromJsonAsync<BankAccountSummaryDtoPublicModel>();
+        return response.IsSuccessStatusCode switch
+        {
+            false => (null, response),
+            _ => (await response.Content.ReadFromJsonAsync<BankAccountSummaryDtoPublicModel>(), response)
+        };
     }
 }

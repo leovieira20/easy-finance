@@ -11,8 +11,14 @@ public static class BankAccountTransactionClient
 {
     private const string BaseUrl = "/BankAccountTransaction";
 
-    public static async Task<IList<BankAccountTransactionDtoPublicModel>?> ShowBankAccountTransactionsAsync(HttpClient client, Guid bankAccountId)
+    public static async Task<(IList<BankAccountTransactionDtoPublicModel>? transactions, HttpResponseMessage response)> ShowBankAccountTransactionsAsync(HttpClient client, Guid bankAccountId)
     {
-        return await client.GetFromJsonAsync<IList<BankAccountTransactionDtoPublicModel>>($"{BaseUrl}?BankAccountId={bankAccountId}");
+        var response = await client.GetAsync($"{BaseUrl}?BankAccountId={bankAccountId}");
+
+        return response.IsSuccessStatusCode switch
+        {
+            false => (null, response),
+            _ => (await response.Content.ReadFromJsonAsync<IList<BankAccountTransactionDtoPublicModel>>(), response)
+        };
     }
 }
