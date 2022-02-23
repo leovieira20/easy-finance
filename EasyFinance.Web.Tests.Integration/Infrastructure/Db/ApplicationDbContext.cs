@@ -1,5 +1,5 @@
+using EasyFinance.Db.SqlServer.EntityTypeConfiguration;
 using EasyFinance.Domain.Accounts;
-using EasyFinance.Infrastructure.Db.SqlServer.EntityTypeConfiguration;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,5 +17,5 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<BankAccount> BankAccounts { get; set; } = null!;
-    public DbSet<BankAccountTransactions> BankAccountTransactions { get; set; } = null!;
+    public DbSet<BankAccountTransaction> BankAccountTransactions { get; set; } = null!;
 }

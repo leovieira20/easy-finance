@@ -40,10 +40,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
-        <ProjectReference Include="..\EasyFinance.Infrastructure.Db.SqlServer\EasyFinance.Infrastructure.Db.SqlServer.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Models\Output" />
+        <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
     </ItemGroup>
 </Project>

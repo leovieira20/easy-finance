@@ -21,7 +21,8 @@ public class CustomWebApplicationFactory<Program> : WebApplicationFactory<Progra
             });
 
             services.AddMediatR(typeof(RegisterBankAccountCommandHandler));
-            services.AddScoped<IBankAccountRepository, InMemoryBankAccountRepository>();
+            services.AddScoped<IBankAccountRepository, InMemoryEfBankAccountRepository>();
+            services.AddScoped<IBankAccountTransactionRepository, InMemoryEfBankAccountTransactionRepository>();
             
             var sp = services.BuildServiceProvider();
 

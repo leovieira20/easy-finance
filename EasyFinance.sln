@@ -10,9 +10,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Application.Tests.Acceptance", "EasyFinance.Application.Tests.Acceptance\EasyFinance.Application.Tests.Acceptance.csproj", "{F0AF5209-2821-4B31-B294-2EF42DD7FD96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Infrastructure.Db.SqlServer", "EasyFinance.Infrastructure.Db.SqlServer\EasyFinance.Infrastructure.Db.SqlServer.csproj", "{B1B2E9A0-DDCC-4B35-AB92-BC489F9D9263}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Db.SqlServer", "EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj", "{B1B2E9A0-DDCC-4B35-AB92-BC489F9D9263}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Web.Tests.Integration", "EasyFinance.Web.Tests.Integration\EasyFinance.Web.Tests.Integration.csproj", "{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B2339477-0465-4315-8211-8AF692C89A3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{53496500-CEA1-4886-9216-E9D6A486B932}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,5 +52,11 @@ Global
 		{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F0AF5209-2821-4B31-B294-2EF42DD7FD96} = {B2339477-0465-4315-8211-8AF692C89A3F}
+		{E485CC53-487E-4AB0-96F0-6BFAB8D6D17D} = {B2339477-0465-4315-8211-8AF692C89A3F}
+		{BC2C5EE2-246B-4FF5-B4D5-6A0EA96DB852} = {B2339477-0465-4315-8211-8AF692C89A3F}
+		{B1B2E9A0-DDCC-4B35-AB92-BC489F9D9263} = {53496500-CEA1-4886-9216-E9D6A486B932}
 	EndGlobalSection
 EndGlobal

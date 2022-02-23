@@ -33,11 +33,11 @@ public class BankAccountRepositoryStepDefinitions
     [Given(@"existing bank account with one deposit")]
     public void GivenExistingBankAccountWithOneDeposit(Table transactions)
     {
-        var transaction = transactions.CreateInstance<BankAccountTransactions>();
+        var transaction = transactions.CreateInstance<BankAccountTransaction>();
         
         var bankAccount = TestBankAccountFactory.Make();
         
-        bankAccount.RegisterDeposit(transaction.Amount);
+        bankAccount.RegisterDeposit(transaction.Amount, DateTime.UtcNow);
 
         _repository.GetAsync(default)
             .ReturnsForAnyArgs(bankAccount);

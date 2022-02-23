@@ -1,6 +1,6 @@
 using EasyFinance.Application.Account.RegisterBankAccount;
+using EasyFinance.Db.SqlServer;
 using EasyFinance.Domain.Accounts;
-using EasyFinance.Infrastructure.Db.SqlServer;
 using MediatR;
 using Serilog;
 
@@ -26,6 +26,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(RegisterBankAccountCommandHandler));
 
 builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
+builder.Services.AddScoped<IBankAccountTransactionRepository, BankAccountTransactionRepository>();
 
 var app = builder.Build();
 

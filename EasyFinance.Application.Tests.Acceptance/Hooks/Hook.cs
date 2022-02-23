@@ -6,7 +6,6 @@ namespace EasyFinance.Application.Tests.Acceptance.Hooks
     [Binding]
     public class Hooks
     {
-
         [BeforeScenario("bankAccount")]
         public void SetupBankAccountRepository(ScenarioContext context)
         {

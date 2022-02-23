@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
+namespace EasyFinance.Web.Infrastructure.Validation;
+
 public class ValidGuidAttribute : ValidationAttribute
 {
     public string GetErrorMessage() => $"Guid cannot be empty";

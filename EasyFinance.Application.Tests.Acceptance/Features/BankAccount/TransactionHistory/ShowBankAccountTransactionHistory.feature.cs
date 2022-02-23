@@ -152,22 +152,22 @@ namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Transact
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Amount"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "1"});
 #line 13
-            testRunner.Given("existing bank account with one deposit", ((string)(null)), table1, "Given ");
+            testRunner.Given("existing bank account with one deposit", ((string)(null)), table3, "Given ");
 #line hidden
 #line 16
             testRunner.When("bank account transactions are listed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "Amount"});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "1"});
 #line 17
-            testRunner.Then("one deposit is shown", ((string)(null)), table2, "Then ");
+            testRunner.Then("one deposit is shown", ((string)(null)), table4, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

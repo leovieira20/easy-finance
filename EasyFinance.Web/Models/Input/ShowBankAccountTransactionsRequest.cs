@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using EasyFinance.Web.Infrastructure.Validation;
 
 namespace EasyFinance.Web.Models.Input;
 

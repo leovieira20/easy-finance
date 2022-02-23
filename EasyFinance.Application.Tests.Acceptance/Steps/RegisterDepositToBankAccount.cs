@@ -19,7 +19,8 @@ public class RegisterDepositToBankAccount
     [When(@"I register a deposit of (.*) to the bank account")]
     public async Task WhenIRegisterADepositToTheBankAccount(int amount)
     {
-        _bankAccountSummary = await _sut.Handle(new RegisterDepositToBankAccountCommand(Guid.Empty, amount), CancellationToken.None);
+        _bankAccountSummary = await _sut
+            .Handle(new RegisterDepositToBankAccountCommand(Guid.Empty, amount, default), CancellationToken.None);
     }
 
     [Then(@"the new balance should be (.*)")]

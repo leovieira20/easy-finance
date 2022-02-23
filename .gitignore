@@ -4,3 +4,5 @@ obj/
 .idea/sonarlint/
 
 EasyFinance.sln.DotSettings.user
+
+*.g.cs

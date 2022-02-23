@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using EasyFinance.Web.Tests.Integration.Helpers.Clients;
+using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -13,17 +13,19 @@ namespace EasyFinance.Web.Tests.Integration;
 
 public class BankAccountTransactionControllerTests : IClassFixture<CustomWebApplicationFactory<Program>>
 {
-    private readonly HttpClient _client;
+    private readonly BankAccountClient _bankAccountClient;
+    private readonly BankAccountTransactionClient _bankAccountTransactionClient;
 
     public BankAccountTransactionControllerTests(CustomWebApplicationFactory<Program> factory)
     {
-        _client = factory.CreateClient();
+        _bankAccountClient = new BankAccountClient(factory);
+        _bankAccountTransactionClient = new BankAccountTransactionClient(factory);
     }
     
     [Fact]
     public async Task InvalidBankAccountId()
     {
-        var (_, response) = await BankAccountTransactionClient.ShowBankAccountTransactionsAsync(_client, Guid.Empty);
+        var (_, response) = await _bankAccountTransactionClient.ShowBankAccountTransactionsAsync(Guid.Empty);
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
@@ -32,9 +34,9 @@ public class BankAccountTransactionControllerTests : IClassFixture<CustomWebAppl
     public async Task NoTransactions()
     {
         var accountName = Guid.NewGuid().ToString();
-        var result = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var result = await _bankAccountClient.RegisterBankAccountAsync(accountName);
         
-        var (transactions, _) = await BankAccountTransactionClient.ShowBankAccountTransactionsAsync(_client, result.bankAccount!.Id);
+        var (transactions, _) = await _bankAccountTransactionClient.ShowBankAccountTransactionsAsync(result.bankAccount!.Id);
 
         transactions.Should().BeEmpty();
     }
@@ -43,13 +45,13 @@ public class BankAccountTransactionControllerTests : IClassFixture<CustomWebAppl
     public async Task OneDeposit()
     {
         var accountName = Guid.NewGuid().ToString();
-        var result = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var result = await _bankAccountClient.RegisterBankAccountAsync(accountName);
 
         var bankAccountId = result.bankAccount!.Id;
         
-        await BankAccountClient.RegisterDepositToAccountAsync(_client, bankAccountId, 1);
+        await _bankAccountClient.RegisterDepositToAccountAsync(bankAccountId, 1, 1);
         
-        var (transactions, _) = await BankAccountTransactionClient.ShowBankAccountTransactionsAsync(_client, bankAccountId);
+        var (transactions, _) = await _bankAccountTransactionClient.ShowBankAccountTransactionsAsync(bankAccountId);
 
         var deposit = transactions!.First();
 

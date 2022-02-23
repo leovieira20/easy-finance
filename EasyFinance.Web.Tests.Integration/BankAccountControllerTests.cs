@@ -1,21 +1,21 @@
 using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using EasyFinance.Web.Tests.Integration.Helpers.Clients;
+using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
+using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
 namespace EasyFinance.Web.Tests.Integration;
 
-public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Program>>
+public class BankAccountControllerTests : IClassFixture<CustomWebApplicationFactory<Program>>
 {
-    private readonly HttpClient _client;
+    private readonly BankAccountClient _bankAccountClient;
 
-    public BankAccountControllerTests(WebApplicationFactory<Program> factory)
+    public BankAccountControllerTests(CustomWebApplicationFactory<Program> factory)
     {
-        _client = factory.CreateClient();
+        _bankAccountClient = new BankAccountClient(factory);
     }
 
     [Theory]
@@ -23,7 +23,7 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     [InlineData(" ")]
     public async Task RegisterAccount_InvalidName(string accountName)
     {
-        var (_, response) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var (_, response) = await _bankAccountClient.RegisterBankAccountAsync(accountName);
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
@@ -33,7 +33,7 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     {
         var accountName = Guid.NewGuid().ToString();
         
-        var (bankAccount, _) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var (bankAccount, _) = await _bankAccountClient.RegisterBankAccountAsync(accountName);
 
         bankAccount?.Name.Should().Be(accountName);
         bankAccount?.Id.Should().NotBeEmpty();
@@ -44,7 +44,7 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     [InlineData(-1)]
     public async Task RegisterDepositToAccount_InvalidAmount(decimal amount)
     {
-        var (_, response) = await BankAccountClient.RegisterDepositToAccountAsync(_client, Guid.NewGuid(), amount);
+        var (_, response) = await _bankAccountClient.RegisterDepositToAccountAsync(Guid.NewGuid(), amount, 1);
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
@@ -52,7 +52,7 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     [Fact]
     public async Task RegisterDepositToAccount_InvalidBankAccountId()
     {
-        var (_, response) = await BankAccountClient.RegisterDepositToAccountAsync(_client, default, 1);
+        var (_, response) = await _bankAccountClient.RegisterDepositToAccountAsync(default, 1, 1);
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
@@ -62,9 +62,9 @@ public class BankAccountControllerTests : IClassFixture<WebApplicationFactory<Pr
     {
         var accountName = Guid.NewGuid().ToString();
         
-        var (bankAccount, _) = await BankAccountClient.RegisterBankAccountAsync(_client, accountName);
+        var (bankAccount, _) = await _bankAccountClient.RegisterBankAccountAsync(accountName);
 
-        var (summary, _) = await BankAccountClient.RegisterDepositToAccountAsync(_client, bankAccount!.Id, 1);
+        var (summary, _) = await _bankAccountClient.RegisterDepositToAccountAsync(bankAccount!.Id, 1, 1);
 
         summary!.Balance.Should().Be(1);
     }

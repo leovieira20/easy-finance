@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyFinance.Web.Controllers;
 
-[ApiController]
 [Route("[controller]")]
 public class BankAccountController : ControllerBase
 {
@@ -34,7 +33,8 @@ public class BankAccountController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
         
-        var response = await _mediator.Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount));
+        var response = await _mediator
+            .Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
 
         return Ok(response.AdaptToPublicModel());
     }

@@ -1,6 +1,6 @@
 using EasyFinance.Domain.Accounts;
 
-namespace EasyFinance.Infrastructure.Db.SqlServer;
+namespace EasyFinance.Db.SqlServer;
 
 public class BankAccountRepository : IBankAccountRepository
 {

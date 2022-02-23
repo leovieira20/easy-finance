@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Db;
 
-public class InMemoryBankAccountRepository : IBankAccountRepository
+public class InMemoryEfBankAccountRepository : IBankAccountRepository
 {
     private readonly ApplicationDbContext _dbContext;
 
-    public InMemoryBankAccountRepository(ApplicationDbContext dbContext)
+    public InMemoryEfBankAccountRepository(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }

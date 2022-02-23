@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyFinance.Web.Controllers;
 
-[Controller]
 [Route("[controller]")]
 public class BankAccountTransactionController : ControllerBase
 {

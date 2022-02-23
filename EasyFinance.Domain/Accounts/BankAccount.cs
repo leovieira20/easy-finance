@@ -20,14 +20,14 @@ public class BankAccount
         Id = BankAccountId.New();
     }
 
-    public void RegisterDeposit(decimal amount)
+    public void RegisterDeposit(decimal amount, DateTime date)
     {
-        Transactions.Add(new BankAccountTransactions(amount));
+        Transactions.Add(new BankAccountTransaction(amount, date));
     }
 
     public BankAccountId Id { get; }
     public string Status { get; private init; } = null!;
     public string Name { get; private init; } = null!;
     public decimal Balance => Transactions.Sum(x => x.Amount);
-    public List<BankAccountTransactions> Transactions { get; } = new List<BankAccountTransactions>();
+    public List<BankAccountTransaction> Transactions { get; } = new List<BankAccountTransaction>();
 }

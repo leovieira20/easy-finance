@@ -28,7 +28,7 @@ public class ShowBankAccountTransactionHistoryStepDefinitions
     [Then(@"one deposit is shown")]
     public void ThenOneDepositIsShown(Table transactions)
     {
-        var expectedTransactions = transactions.CreateInstance<BankAccountTransactions>();
+        var expectedTransactions = transactions.CreateInstance<BankAccountTransaction>();
 
         var actualTransaction = _transactions.First();
         
