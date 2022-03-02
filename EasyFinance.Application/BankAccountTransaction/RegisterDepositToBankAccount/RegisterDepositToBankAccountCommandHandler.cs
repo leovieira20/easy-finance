@@ -1,7 +1,7 @@
 using EasyFinance.Domain.Accounts;
 using MediatR;
 
-namespace EasyFinance.Application.Account.RegisterDepositToBankAccount;
+namespace EasyFinance.Application.BankAccountTransaction.RegisterDepositToBankAccount;
 
 public class RegisterDepositToBankAccountCommandHandler : IRequestHandler<RegisterDepositToBankAccountCommand, BankAccountSummaryDto>
 {

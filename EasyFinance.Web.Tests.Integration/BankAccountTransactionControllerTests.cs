@@ -49,12 +49,42 @@ public class BankAccountTransactionControllerTests : IClassFixture<CustomWebAppl
 
         var bankAccountId = result.bankAccount!.Id;
         
-        await _bankAccountClient.RegisterDepositToAccountAsync(bankAccountId, 1, 1);
+        await _bankAccountTransactionClient.RegisterDepositToAccountAsync(bankAccountId, 1, 1);
         
         var (transactions, _) = await _bankAccountTransactionClient.ShowBankAccountTransactionsAsync(bankAccountId);
 
         var deposit = transactions!.First();
 
         deposit.Amount.Should().Be(1);
+    }
+    
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public async Task RegisterDepositToAccount_InvalidAmount(decimal amount)
+    {
+        var (_, response) = await _bankAccountTransactionClient.RegisterDepositToAccountAsync(Guid.NewGuid(), amount, 1);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+    
+    [Fact]
+    public async Task RegisterDepositToAccount_InvalidBankAccountId()
+    {
+        var (_, response) = await _bankAccountTransactionClient.RegisterDepositToAccountAsync(default, 1, 1);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+    
+    [Fact]
+    public async Task RegisterDepositToAccount()
+    {
+        var accountName = Guid.NewGuid().ToString();
+        
+        var (bankAccount, _) = await _bankAccountClient.RegisterBankAccountAsync(accountName);
+
+        var (summary, _) = await _bankAccountTransactionClient.RegisterDepositToAccountAsync(bankAccount!.Id, 1, 1);
+
+        summary!.Balance.Should().Be(1);
     }
 }

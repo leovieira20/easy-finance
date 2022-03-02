@@ -1,4 +1,5 @@
 using EasyFinance.Application.Account.RegisterBankAccount;
+using EasyFinance.Application.BankAccount.RegisterBankAccount;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Db;
 using MediatR;

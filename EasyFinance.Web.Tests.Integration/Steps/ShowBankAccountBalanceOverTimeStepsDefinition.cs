@@ -15,13 +15,15 @@ public class ShowBankAccountBalanceOverTimeStepsDefinition
 {
     private readonly BankAccountClient _bankAccountClient;
     private readonly BankAccountOverviewClient _bankAccountOverviewClient;
+    private readonly BankAccountTransactionClient _bankAccountTransactionClient;
     private BankAccountDtoPublicModel? _bankAccount;
     private BankAccountOverviewPublicModel? _bankAccountOverview;
 
-    public ShowBankAccountBalanceOverTimeStepsDefinition(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient)
+    public ShowBankAccountBalanceOverTimeStepsDefinition(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient, BankAccountTransactionClient bankAccountTransactionClient)
     {
         _bankAccountClient = bankAccountClient;
         _bankAccountOverviewClient = bankAccountOverviewClient;
+        _bankAccountTransactionClient = bankAccountTransactionClient;
     }
 
     [Given(@"my bank account has some transactions")]
@@ -35,7 +37,7 @@ public class ShowBankAccountBalanceOverTimeStepsDefinition
 
         foreach (var (month, amount) in transactions)
         {
-            await _bankAccountClient.RegisterDepositToAccountAsync(bankAccount!.Id, amount, month);
+            await _bankAccountTransactionClient.RegisterDepositToAccountAsync(bankAccount!.Id, amount, month);
         }
     }
 

@@ -1,5 +1,6 @@
 using EasyFinance.Application.Account.RegisterBankAccount;
 using EasyFinance.Application.Account.RegisterDepositToBankAccount;
+using EasyFinance.Application.BankAccount.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,20 +22,8 @@ public class BankAccountController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        
-        var response = await _mediator.Send(new RegisterBankAccountCommand(request.Name));
 
-        return Ok(response.AdaptToPublicModel());
-    }
-    
-    [HttpPost("RegisterDeposit")]
-    public async Task<IActionResult> RegisterDeposit([FromBody] RegisterDepositToBankAccountRequest request)
-    {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
-        
-        var response = await _mediator
-            .Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
+        var response = await _mediator.Send(new RegisterBankAccountCommand(request.Name));
 
         return Ok(response.AdaptToPublicModel());
     }

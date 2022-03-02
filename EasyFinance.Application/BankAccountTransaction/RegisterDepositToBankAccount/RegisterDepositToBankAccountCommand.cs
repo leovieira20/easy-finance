@@ -1,5 +1,5 @@
 using MediatR;
 
-namespace EasyFinance.Application.Account.RegisterDepositToBankAccount;
+namespace EasyFinance.Application.BankAccountTransaction.RegisterDepositToBankAccount;
 
 public record RegisterDepositToBankAccountCommand(Guid BankAccountId, decimal Amount, DateTime date) : IRequest<BankAccountSummaryDto>;

@@ -1,7 +1,7 @@
 using EasyFinance.Domain.Accounts;
 using MediatR;
 
-namespace EasyFinance.Application.Account.RegisterBankAccount;
+namespace EasyFinance.Application.BankAccount.RegisterBankAccount;
 
 public class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAccountCommand, BankAccountDto>
 {
@@ -14,7 +14,7 @@ public class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAcc
 
     public async Task<BankAccountDto> Handle(RegisterBankAccountCommand request, CancellationToken cancellationToken)
     {
-        var bankAccount = BankAccount.Create(request.BankAccountName);
+        var bankAccount = Domain.Accounts.BankAccount.Create(request.BankAccountName);
 
         await _repository.CreateAsync(bankAccount);
         

@@ -1,4 +1,4 @@
-using EasyFinance.Application.Account.RegisterDepositToBankAccount;
+using EasyFinance.Application.BankAccountTransaction.RegisterDepositToBankAccount;
 using EasyFinance.Domain.Accounts;
 using FluentAssertions;
 

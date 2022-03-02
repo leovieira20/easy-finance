@@ -1,4 +1,7 @@
+using EasyFinance.Application.Account.RegisterDepositToBankAccount;
 using EasyFinance.Application.Account.ShowBankAccountTransactions;
+using EasyFinance.Application.BankAccountTransaction.RegisterDepositToBankAccount;
+using EasyFinance.Application.BankAccountTransaction.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +23,21 @@ public class BankAccountTransactionController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        
+
         var transactions = await _mediator.Send(new ShowBankAccountTransactionHistoryCommand(request.BankAccountId));
 
         return Ok(transactions.Select(x => x.AdaptToPublicModel()).ToList());
+    }
+
+    [HttpPost("RegisterDeposit")]
+    public async Task<IActionResult> RegisterDeposit([FromBody] RegisterDepositToBankAccountRequest request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var response = await _mediator
+            .Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
+
+        return Ok(response.AdaptToPublicModel());
     }
 }

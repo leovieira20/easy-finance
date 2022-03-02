@@ -1,4 +1,3 @@
-using EasyFinance.Application.Account.ShowBankAccountTransactions;
 using EasyFinance.Domain.Accounts;
 using MediatR;
 
