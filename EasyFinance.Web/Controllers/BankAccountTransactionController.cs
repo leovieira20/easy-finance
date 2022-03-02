@@ -38,4 +38,16 @@ public class BankAccountTransactionController : ControllerBase
 
         return Ok(response.AdaptToPublicModel());
     }
+    
+    [HttpPost("[action]")]
+    public async Task<IActionResult> RegisterPayment([FromBody] RegisterPaymentToBankAccountRequest request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var response = await _mediator
+            .Send(new RegisterPaymentToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
+
+        return Ok(response.AdaptToPublicModel());
+    }
 }

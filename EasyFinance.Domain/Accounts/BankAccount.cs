@@ -24,6 +24,11 @@ public class BankAccount
     {
         Transactions.Add(new BankAccountTransaction(amount, date));
     }
+    
+    public void RegisterPayment(decimal amount, DateTime date)
+    {
+        Transactions.Add(new BankAccountTransaction(amount, date));
+    }
 
     public BankAccountId Id { get; }
     public string Status { get; private init; } = null!;

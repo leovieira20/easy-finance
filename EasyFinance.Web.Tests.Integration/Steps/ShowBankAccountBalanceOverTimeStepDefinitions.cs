@@ -11,7 +11,7 @@ using TechTalk.SpecFlow.Assist;
 namespace EasyFinance.Web.Tests.Integration.Steps;
 
 [Binding]
-public class ShowBankAccountBalanceOverTimeStepsDefinition
+public class ShowBankAccountBalanceOverTimeStepDefinitions
 {
     private readonly BankAccountClient _bankAccountClient;
     private readonly BankAccountOverviewClient _bankAccountOverviewClient;
@@ -19,7 +19,7 @@ public class ShowBankAccountBalanceOverTimeStepsDefinition
     private BankAccountDtoPublicModel? _bankAccount;
     private BankAccountOverviewPublicModel? _bankAccountOverview;
 
-    public ShowBankAccountBalanceOverTimeStepsDefinition(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient, BankAccountTransactionClient bankAccountTransactionClient)
+    public ShowBankAccountBalanceOverTimeStepDefinitions(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient, BankAccountTransactionClient bankAccountTransactionClient)
     {
         _bankAccountClient = bankAccountClient;
         _bankAccountOverviewClient = bankAccountOverviewClient;

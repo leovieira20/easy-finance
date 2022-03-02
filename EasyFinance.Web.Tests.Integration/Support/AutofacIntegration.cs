@@ -19,7 +19,7 @@ public class AutofacIntegration
         var builder = new ContainerBuilder();
 
         builder
-            .RegisterTypes(typeof(ShowBankAccountBalanceOverTimeStepsDefinition).Assembly.GetTypes()
+            .RegisterTypes(typeof(ShowBankAccountBalanceOverTimeStepDefinitions).Assembly.GetTypes()
                 .Where(t => Attribute.IsDefined(t, typeof(BindingAttribute)))
                 .ToArray())
             .SingleInstance();

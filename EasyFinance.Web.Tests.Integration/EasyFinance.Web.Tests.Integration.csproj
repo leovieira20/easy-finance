@@ -31,4 +31,17 @@
       <ProjectReference Include="..\EasyFinance.Web\EasyFinance.Web.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Features\BankAccountOverview\ShowBankAccountBalanceOverTime.feature.cs">
+        <DependentUpon>ShowBankAccountBalanceOverTime.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\BankAccount" />
+    </ItemGroup>
+
 </Project>
