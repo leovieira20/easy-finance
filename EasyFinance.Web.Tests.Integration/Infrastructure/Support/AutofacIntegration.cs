@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using SpecFlow.Autofac;
 using TechTalk.SpecFlow;
 
-namespace EasyFinance.Web.Tests.Integration.Support;
+namespace EasyFinance.Web.Tests.Integration.Infrastructure.Support;
 
 public class AutofacIntegration
 {
@@ -32,7 +32,8 @@ public class AutofacIntegration
         builder.RegisterType<BankAccountClient>().SingleInstance();
         builder.RegisterType<BankAccountOverviewClient>().SingleInstance();
         builder.RegisterType<BankAccountTransactionClient>().SingleInstance();
-  
+        builder.RegisterType<CreditCardClient>().SingleInstance();
+
         return builder;
     }
 }

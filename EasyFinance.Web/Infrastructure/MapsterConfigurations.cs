@@ -1,4 +1,5 @@
 using EasyFinance.Application.GetBankAccountOverview;
+using EasyFinance.Application.Register;
 using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Application.RegisterDepositToBankAccount;
 using EasyFinance.Application.ShowBankAccountTransactions;
@@ -15,13 +16,15 @@ public class MapsterConfigurations : ICodeGenerationRegister
             .ForType<BankAccountSummaryDto>()
             .ForType<BankAccountTransactionDto>()
             .ForType<BankAccountOverviewDto>()
-            .ForType<MonthlyBreakdownDto>();
+            .ForType<MonthlyBreakdownDto>()
+            .ForType<CreditCardDto>();
 
         config.GenerateMapper("[name]Mapper")
             .ForType<BankAccountDto>()
             .ForType<BankAccountSummaryDto>()
             .ForType<BankAccountTransactionDto>()
             .ForType<BankAccountOverviewDto>()
-            .ForType<MonthlyBreakdownDto>();
+            .ForType<MonthlyBreakdownDto>()
+            .ForType<CreditCardDto>();
     }
 }

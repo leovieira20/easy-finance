@@ -18,4 +18,5 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<BankAccount> BankAccounts { get; set; } = null!;
     public DbSet<BankAccountTransaction> BankAccountTransactions { get; set; } = null!;
+    public DbSet<CreditCard> CreditCards { get; set; } = null!;
 }

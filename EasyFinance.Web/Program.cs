@@ -27,6 +27,7 @@ builder.Services.AddMediatR(typeof(RegisterBankAccountCommandHandler));
 
 builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 builder.Services.AddScoped<IBankAccountTransactionRepository, BankAccountTransactionRepository>();
+builder.Services.AddScoped<ICreditCardRepository, CreditCardRepository>();
 
 var app = builder.Build();
 

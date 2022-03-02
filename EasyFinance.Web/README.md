@@ -7,7 +7,6 @@
 
 # Backlog
 ## features
-- Create credit card account
 - Set credit card limit
 - Set credit card threshold
 - Set credit card payment forecast till zeroes
