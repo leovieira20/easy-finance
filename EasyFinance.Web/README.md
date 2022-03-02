@@ -7,8 +7,6 @@
 
 # Backlog
 ## features
-- Make payment
-  - has to affect balance
 - Create credit card account
 - Set credit card limit
 - Set credit card threshold

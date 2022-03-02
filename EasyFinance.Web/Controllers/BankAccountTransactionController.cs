@@ -27,7 +27,7 @@ public class BankAccountTransactionController : ControllerBase
         return Ok(transactions.Select(x => x.AdaptToPublicModel()).ToList());
     }
 
-    [HttpPost("RegisterDeposit")]
+    [HttpPost("[action]")]
     public async Task<IActionResult> RegisterDeposit([FromBody] RegisterDepositToBankAccountRequest request)
     {
         if (!ModelState.IsValid)

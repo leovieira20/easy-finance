@@ -15,8 +15,8 @@ public class BankAccountController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("Register")]
-    public async Task<IActionResult> RegisterAccount([FromBody] RegisterBankAccountRequest request)
+    [HttpPost("[action]")]
+    public async Task<IActionResult> Register([FromBody] RegisterBankAccountRequest request)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
