@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.AccountOverview.GetBankAccountOverview;
+namespace EasyFinance.Application.GetBankAccountOverview;
 
 public class MonthlyBreakdownDto
 {

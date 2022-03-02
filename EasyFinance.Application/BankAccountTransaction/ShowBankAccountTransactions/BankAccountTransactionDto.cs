@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.BankAccountTransaction.ShowBankAccountTransactions;
+namespace EasyFinance.Application.ShowBankAccountTransactions;
 
 public record BankAccountTransactionDto
 {

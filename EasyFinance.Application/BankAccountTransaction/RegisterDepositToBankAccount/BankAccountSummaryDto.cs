@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.BankAccountTransaction.RegisterDepositToBankAccount;
+namespace EasyFinance.Application.RegisterDepositToBankAccount;
 
 public record BankAccountSummaryDto
 {

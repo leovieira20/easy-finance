@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
 namespace EasyFinance.Web.Tests.Integration;

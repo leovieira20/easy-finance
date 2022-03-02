@@ -1,12 +1,10 @@
 using System;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Xunit;
 
 namespace EasyFinance.Web.Tests.Integration;

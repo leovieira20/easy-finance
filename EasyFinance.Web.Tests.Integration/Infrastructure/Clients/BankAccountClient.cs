@@ -1,12 +1,9 @@
-using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.Account.RegisterBankAccount;
-using EasyFinance.Application.Account.RegisterDepositToBankAccount;
+using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 

@@ -4,7 +4,6 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 

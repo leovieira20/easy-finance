@@ -1,7 +1,7 @@
 using EasyFinance.Domain.Accounts;
 using MediatR;
 
-namespace EasyFinance.Application.AccountOverview.GetBankAccountOverview;
+namespace EasyFinance.Application.GetBankAccountOverview;
 
 public class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverviewCommand, BankAccountOverviewDto>
 {

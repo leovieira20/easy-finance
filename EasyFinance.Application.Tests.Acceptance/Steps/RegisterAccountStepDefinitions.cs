@@ -1,4 +1,4 @@
-using EasyFinance.Application.BankAccount.RegisterBankAccount;
+using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Domain.Accounts;
 using FluentAssertions;
 using NSubstitute;

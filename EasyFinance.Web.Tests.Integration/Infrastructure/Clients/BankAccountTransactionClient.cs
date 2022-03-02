@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.Account.RegisterDepositToBankAccount;
-using EasyFinance.Application.Account.ShowBankAccountTransactions;
+using EasyFinance.Application.RegisterDepositToBankAccount;
+using EasyFinance.Application.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Input;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 

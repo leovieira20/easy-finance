@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.BankAccount.RegisterBankAccount;
+namespace EasyFinance.Application.RegisterBankAccount;
 
 public record BankAccountDto
 {

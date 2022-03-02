@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyFinance.Application.Account.RegisterBankAccount;
+using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;

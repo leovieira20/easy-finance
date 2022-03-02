@@ -1,6 +1,4 @@
-using EasyFinance.Application.Account.RegisterBankAccount;
-using EasyFinance.Application.Account.RegisterDepositToBankAccount;
-using EasyFinance.Application.BankAccount.RegisterBankAccount;
+using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

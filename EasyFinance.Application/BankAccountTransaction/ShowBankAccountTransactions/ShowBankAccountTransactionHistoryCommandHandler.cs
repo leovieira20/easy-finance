@@ -1,7 +1,7 @@
 using EasyFinance.Domain.Accounts;
 using MediatR;
 
-namespace EasyFinance.Application.BankAccountTransaction.ShowBankAccountTransactions;
+namespace EasyFinance.Application.ShowBankAccountTransactions;
 
 public class ShowBankAccountTransactionHistoryCommandHandler : IRequestHandler<ShowBankAccountTransactionHistoryCommand, List<BankAccountTransactionDto>>
 {
