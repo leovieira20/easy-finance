@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
 
-public class ShowBankAccountTransactionHistoryCommandHandler : IRequestHandler<ShowBankAccountTransactionHistoryCommand, List<BankAccountTransactionDto>>
+class ShowBankAccountTransactionHistoryCommandHandler : IRequestHandler<ShowBankAccountTransactionHistoryCommand, List<BankAccountTransactionDto>>
 {
     private readonly IBankAccountRepository _repository;
 

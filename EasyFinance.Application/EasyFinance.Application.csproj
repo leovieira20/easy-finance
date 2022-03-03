@@ -14,4 +14,8 @@
       <PackageReference Include="MediatR" Version="10.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
+        <InternalsVisibleTo Include="EasyFinance.Application.Tests.Acceptance" />
+    </ItemGroup>
 </Project>

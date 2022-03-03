@@ -2,7 +2,7 @@ using EasyFinance.Domain.Accounts;
 
 namespace EasyFinance.Db.SqlServer;
 
-public class BankAccountRepository : IBankAccountRepository
+class BankAccountRepository : IBankAccountRepository
 {
     public Task CreateAsync(BankAccount bankAccount)
     {

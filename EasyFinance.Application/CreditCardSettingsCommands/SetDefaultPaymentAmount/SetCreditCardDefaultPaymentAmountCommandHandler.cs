@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.CreditCardSettingsCommands.SetDefaultPaymentAmount;
 
-public class SetCreditCardDefaultPaymentAmountCommandHandler : IRequestHandler<SetCreditCardDefaultPaymentAmountCommand, CreditCardSettings>
+class SetCreditCardDefaultPaymentAmountCommandHandler : IRequestHandler<SetCreditCardDefaultPaymentAmountCommand, CreditCardSettings>
 {
     private readonly ICreditCardRepository _repository;
 

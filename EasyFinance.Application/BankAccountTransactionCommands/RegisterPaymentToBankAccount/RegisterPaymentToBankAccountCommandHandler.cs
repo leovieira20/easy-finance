@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EasyFinance.Application.BankAccountTransactionCommands.RegisterPaymentToBankAccount;
 
-public class RegisterPaymentToBankAccountCommandHandler : IRequestHandler<RegisterPaymentToBankAccountCommand, BankAccountSummaryDto>
+class RegisterPaymentToBankAccountCommandHandler : IRequestHandler<RegisterPaymentToBankAccountCommand, BankAccountSummaryDto>
 {
     private readonly IBankAccountRepository _repository;
 

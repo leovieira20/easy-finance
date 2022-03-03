@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.CreditCardSettingsCommands.SetThreshold;
 
-public class SetCreditCardThresholdLimitCommandHandler : IRequestHandler<SetCreditCardThresholdCommand, CreditCardSettings>
+class SetCreditCardThresholdLimitCommandHandler : IRequestHandler<SetCreditCardThresholdCommand, CreditCardSettings>
 {
     private readonly ICreditCardRepository _repository;
 

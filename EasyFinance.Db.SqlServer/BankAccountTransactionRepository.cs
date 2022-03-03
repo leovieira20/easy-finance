@@ -2,7 +2,7 @@ using EasyFinance.Domain.Accounts;
 
 namespace EasyFinance.Db.SqlServer;
 
-public class BankAccountTransactionRepository : IBankAccountTransactionRepository
+class BankAccountTransactionRepository : IBankAccountTransactionRepository
 
 {
     public Task<List<BankAccountTransaction>> GetForBankAccountAsync(BankAccountId bankAccountId, DateTime startDate,

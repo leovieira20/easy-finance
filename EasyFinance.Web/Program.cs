@@ -24,12 +24,9 @@ builder.Host.UseSerilog();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddMediatR(typeof(RegisterBankAccountCommandHandler));
+builder.Services.AddMediatR(typeof(RegisterBankAccountCommand));
 
-builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
-builder.Services.AddScoped<IBankAccountTransactionRepository, BankAccountTransactionRepository>();
-builder.Services.AddScoped<ICreditCardRepository, CreditCardRepository>();
-builder.Services.AddScoped<ICreditCardTransactionRepository, CreditCardTransactionRepository>();
+SqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
 
 var app = builder.Build();
 

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EasyFinance.Application.CreditCardCommands.Overview;
 
-public class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOverviewCommand, CreditCardOverviewDto>
+class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOverviewCommand, CreditCardOverviewDto>
 {
     private readonly ICreditCardRepository _creditCardRepository;
     private readonly ICreditCardTransactionRepository _transactionRepository;

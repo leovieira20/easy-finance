@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.CreditCardCommands.Register;
 
-public class RegisterCreditCardCommandHandler : IRequestHandler<RegisterCreditCardCommand, CreditCardDto>
+class RegisterCreditCardCommandHandler : IRequestHandler<RegisterCreditCardCommand, CreditCardDto>
 {
     private readonly ICreditCardRepository _repository;
 

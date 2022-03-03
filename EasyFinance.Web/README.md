@@ -21,7 +21,6 @@
 
 - migrate `Web.Tests.Integration` to Specflow
 - implement request validation on `BankAccountOverviewController.Get`
-- reduce visibility of modules
 
 ## known issues
 

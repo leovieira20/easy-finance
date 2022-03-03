@@ -1,6 +1,6 @@
 namespace EasyFinance.Application.CreditCardCommands.Overview;
 
-public class CreditCardOverviewDto
+public record CreditCardOverviewDto
 {
     public IEnumerable<CreditCardMonthlyBreakdownDto> Breakdowns { get; set; }
 }
