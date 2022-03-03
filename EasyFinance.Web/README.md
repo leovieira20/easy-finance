@@ -12,7 +12,6 @@
 
 ## features
 
-- Set credit card limit
 - Set credit card threshold
 - Set credit card default payment amount
 - Show credit card overview forecast till zeroes (forecast on)

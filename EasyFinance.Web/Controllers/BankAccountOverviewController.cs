@@ -1,4 +1,4 @@
-using EasyFinance.Application.GetBankAccountOverview;
+using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Models.Input;
 using MediatR;

@@ -1,4 +1,4 @@
-using EasyFinance.Application.Overview;
+using EasyFinance.Application.CreditCardCommands.Overview;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

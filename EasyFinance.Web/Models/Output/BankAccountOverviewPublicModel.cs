@@ -1,4 +1,4 @@
-using EasyFinance.Application.GetBankAccountOverview;
+using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 
 namespace EasyFinance.Web.Models.Output;
 

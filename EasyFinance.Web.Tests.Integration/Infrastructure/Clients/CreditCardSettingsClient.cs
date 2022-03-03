@@ -2,7 +2,6 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 

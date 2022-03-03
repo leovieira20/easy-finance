@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using EasyFinance.Application.Overview;
+using EasyFinance.Application.CreditCardCommands.Overview;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -11,7 +11,7 @@ namespace EasyFinance.Web.Tests.Integration.Steps;
 public class CreditCardOverviewStepDefinitions
 {
     private readonly CreditCardOverviewClient _client;
-    private CreditCardOverviewDto _overview;
+    private CreditCardOverviewDto _overview = null!;
 
     public CreditCardOverviewStepDefinitions(CreditCardOverviewClient client)
     {

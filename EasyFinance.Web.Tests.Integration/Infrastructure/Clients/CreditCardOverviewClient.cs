@@ -2,7 +2,7 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.Overview;
+using EasyFinance.Application.CreditCardCommands.Overview;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;

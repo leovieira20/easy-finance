@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.RegisterBankAccount;
+using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 

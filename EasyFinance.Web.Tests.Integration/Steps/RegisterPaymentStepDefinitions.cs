@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using EasyFinance.Application.RegisterDepositToBankAccount;
+using EasyFinance.Application.BankAccountTransactionCommands.RegisterDepositToBankAccount;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
@@ -13,7 +13,7 @@ public class RegisterPaymentStepDefinitions
 {
     private readonly ScenarioContext _context;
     private readonly BankAccountTransactionClient _client;
-    private BankAccountSummaryDtoPublicModel _summary;
+    private BankAccountSummaryDtoPublicModel _summary = null!;
 
     public RegisterPaymentStepDefinitions(ScenarioContext context, BankAccountTransactionClient client)
     {

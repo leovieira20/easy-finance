@@ -1,4 +1,4 @@
-using EasyFinance.Application.RegisterBankAccount;
+using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
 using EasyFinance.Db.SqlServer;
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;

@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using SpecFlow.Autofac;
 using TechTalk.SpecFlow;
 
-namespace EasyFinance.Web.Tests.Integration.Infrastructure.Support;
+namespace EasyFinance.Web.Tests.Integration.Infrastructure.Ioc;
 
 public class AutofacIntegration
 {
