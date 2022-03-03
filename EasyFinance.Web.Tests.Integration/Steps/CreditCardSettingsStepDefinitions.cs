@@ -33,10 +33,23 @@ public class CreditCardSettingsStepDefinitions
         var creditCard = _scenarioContext.Get<CreditCard>(nameof(CreditCard));
         _response = await _client.SetLimitAsync(creditCard.Id.Value, limitAmount);
     }
+    
+    [When(@"I set the threshold to (.*) euros")]
+    public async Task WhenISetTheThresholdToEuros(int amount)
+    {
+        var creditCard = _scenarioContext.Get<CreditCard>(nameof(CreditCard));
+        _response = await _client.SetThresholdAsync(creditCard.Id.Value, amount);
+    }
 
     [Then(@"limit on my card is (.*) euros")]
     public void ThenLimitOnMyCardIsEuros(int limitAmount)
     {
         _response.ParsedPayload!.Limit.Should().Be(limitAmount);
+    }
+
+    [Then(@"threshold on my card is (.*) euros")]
+    public void ThenThresholdOnMyCardIsEuros(int amount)
+    {
+        _response.ParsedPayload!.Threshold.Should().Be(amount);
     }
 }

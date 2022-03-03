@@ -27,6 +27,11 @@ public class CreditCard
     {
         Settings.Limit = limitAmount;
     }
+    
+    public void SetThreshold(decimal amount)
+    {
+        Settings.Threshold = amount;
+    }
 
     public CreditCardId Id { get; set; }
     public string Name { get; set; }
