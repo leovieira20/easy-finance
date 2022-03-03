@@ -18,11 +18,6 @@ public class RegisterCreditCardStepDefinitions
     {
         _client = client;
     }
-    
-    [Given(@"I haven't registered any credit cards yet")]
-    public void GivenIHaventRegisteredAnyCreditCardsYet()
-    {
-    }
 
     [When(@"I register a valid credit card")]
     public async Task WhenIRegisterAValidCreditCard()

@@ -19,7 +19,7 @@ public class RegisterCreditCardCommandHandler : IRequestHandler<RegisterCreditCa
 
         return Task.FromResult(new CreditCardDto
         {
-            Id = creditCard.Id,
+            Id = creditCard.Id.Value,
             Name = creditCard.Name
         });
     }

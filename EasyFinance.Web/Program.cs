@@ -1,5 +1,6 @@
 using EasyFinance.Application.RegisterBankAccount;
 using EasyFinance.Db.SqlServer;
+using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using MediatR;
 using Serilog;
@@ -28,6 +29,7 @@ builder.Services.AddMediatR(typeof(RegisterBankAccountCommandHandler));
 builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 builder.Services.AddScoped<IBankAccountTransactionRepository, BankAccountTransactionRepository>();
 builder.Services.AddScoped<ICreditCardRepository, CreditCardRepository>();
+builder.Services.AddScoped<ICreditCardTransactionRepository, CreditCardTransactionRepository>();
 
 var app = builder.Build();
 
