@@ -40,6 +40,13 @@ public class CreditCardSettingsStepDefinitions
         var creditCard = _scenarioContext.Get<CreditCard>(nameof(CreditCard));
         _response = await _client.SetThresholdAsync(creditCard.Id.Value, amount);
     }
+    
+    [When(@"I set the default payment amount to (.*) euros")]
+    public async Task WhenISetTheDefaultPaymentAmountToEuros(int amount)
+    {
+        var creditCard = _scenarioContext.Get<CreditCard>(nameof(CreditCard));
+        _response = await _client.SetDefaultPaymentAmountAsync(creditCard.Id.Value, amount);
+    }
 
     [Then(@"limit on my card is (.*) euros")]
     public void ThenLimitOnMyCardIsEuros(int limitAmount)
@@ -51,5 +58,11 @@ public class CreditCardSettingsStepDefinitions
     public void ThenThresholdOnMyCardIsEuros(int amount)
     {
         _response.ParsedPayload!.Threshold.Should().Be(amount);
+    }
+
+    [Then(@"default payment amount on my card is (.*) euros")]
+    public void ThenDefaultPaymentAmountOnMyCardIsEuros(int amount)
+    {
+        _response.ParsedPayload!.DefaultPaymentAmount.Should().Be(amount);
     }
 }

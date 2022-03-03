@@ -38,6 +38,12 @@
         <DesignTime>true</DesignTime>
         <Visible>true</Visible>
       </Compile>
+      <Compile Update="Features\CreditCardSettings\SetCreditCardDefaultPaymentAmount.feature.cs">
+        <DependentUpon>SetCreditCardDefaultPaymentAmount.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

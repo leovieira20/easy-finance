@@ -38,4 +38,15 @@ public class CreditCardSettingsClient
             _ => new ClientResponse<CreditCardSettingsPublicModel>(await response.Content.ReadFromJsonAsync<CreditCardSettingsPublicModel>(), response)
         };
     }
+
+    public async Task<ClientResponse<CreditCardSettingsPublicModel>> SetDefaultPaymentAmountAsync(Guid creditCardId, int amount)
+    {
+        var response = await _httpClient.PutAsJsonAsync($"{BaseUrl}/SetDefaultPaymentAmount/{creditCardId}", amount);
+
+        return response.IsSuccessStatusCode switch
+        {
+            false => new ClientResponse<CreditCardSettingsPublicModel>(null, response),
+            _ => new ClientResponse<CreditCardSettingsPublicModel>(await response.Content.ReadFromJsonAsync<CreditCardSettingsPublicModel>(), response)
+        };
+    }
 }

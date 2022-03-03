@@ -15,7 +15,7 @@ public class CreditCard
     
     public void SetDefaultPaymentAmount(int amount)
     {
-        DefaultPaymentAmount = amount;
+        Settings.DefaultPaymentAmount = amount;
     }
     
     public void RegisterTransaction(Transaction transaction)
@@ -32,10 +32,14 @@ public class CreditCard
     {
         Settings.Threshold = amount;
     }
+    
+    public void SetDefaultPaymentAmount(decimal amount)
+    {
+        Settings.DefaultPaymentAmount = amount;
+    }
 
     public CreditCardId Id { get; set; }
     public string Name { get; set; }
-    public decimal DefaultPaymentAmount { get; set; }
     public CreditCardSettings Settings { get; set; } = new CreditCardSettings();
     public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
 }

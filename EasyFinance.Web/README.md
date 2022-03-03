@@ -12,7 +12,6 @@
 
 ## features
 
-- Set credit card default payment amount
 - Show credit card overview forecast till zeroes (forecast on)
 - Show credit card overview
 - Add "real balance" when credit card debt exists

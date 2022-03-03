@@ -1,3 +1,4 @@
+using EasyFinance.Application.CreditCardSettingsCommands.SetDefaultPaymentAmount;
 using EasyFinance.Application.CreditCardSettingsCommands.SetLimit;
 using EasyFinance.Application.CreditCardSettingsCommands.SetThreshold;
 using EasyFinance.Domain.Accounts;
@@ -28,6 +29,14 @@ public class CreditCardSettingsController : ControllerBase
     public async Task<IActionResult> SetThreshold(Guid creditCardId, [FromBody] decimal limitAmount)
     {
         var response = await _mediator.Send(new SetCreditCardThresholdCommand(creditCardId, limitAmount));
+
+        return Ok(response.AdaptToPublicModel());
+    }
+    
+    [HttpPut("[action]/{creditCardId}")]
+    public async Task<IActionResult> SetDefaultPaymentAmount(Guid creditCardId, [FromBody] decimal limitAmount)
+    {
+        var response = await _mediator.Send(new SetCreditCardDefaultPaymentAmountCommand(creditCardId, limitAmount));
 
         return Ok(response.AdaptToPublicModel());
     }
