@@ -4,5 +4,6 @@ namespace EasyFinance.Domain;
 
 public interface ICreditCardTransactionRepository
 {
-    Task<List<Transaction>> GetAsync(Guid requestCreditCardId, DateTime requestStartDate, DateTime requestEndDate);
+    Task<List<CreditCardTransaction>> GetAsync(CreditCardId creditCardId, DateTime startDate, DateTime endDate);
+    Task RegisterAsync(CreditCardTransaction transaction);
 }

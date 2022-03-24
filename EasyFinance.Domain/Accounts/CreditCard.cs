@@ -17,12 +17,7 @@ public class CreditCard
     {
         Settings.DefaultPaymentAmount = amount;
     }
-    
-    public void RegisterTransaction(Transaction transaction)
-    {
-        Transactions.Add(transaction);
-    }
-    
+
     public void SetLimit(decimal limitAmount)
     {
         Settings.Limit = limitAmount;
@@ -41,5 +36,5 @@ public class CreditCard
     public CreditCardId Id { get; set; }
     public string Name { get; set; }
     public CreditCardSettings Settings { get; set; } = new CreditCardSettings();
-    public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+    public ICollection<CreditCardTransaction> Transactions { get; set; } = new List<CreditCardTransaction>();
 }

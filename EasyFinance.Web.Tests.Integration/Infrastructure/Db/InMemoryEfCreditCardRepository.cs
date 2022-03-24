@@ -19,10 +19,13 @@ public class InMemoryEfCreditCardRepository : ICreditCardRepository
         _dbContext.CreditCards.Add(creditCard);
         _dbContext.SaveChanges();
     }
-
-    public Task<CreditCard?> GetAsync(Guid creditCardId)
+    
+    public Task<CreditCard?> GetAsync(CreditCardId creditCardId)
     {
-        return _dbContext.CreditCards.SingleOrDefaultAsync(x => x.Id.Value == creditCardId);
+        return _dbContext
+            .CreditCards
+            .Include(x => x.Settings)
+            .SingleOrDefaultAsync(x => x.Id == creditCardId);
     }
 
     public void Update(CreditCard creditCard)

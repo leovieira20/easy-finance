@@ -12,8 +12,10 @@
 
 ## features
 
-- Show credit card overview forecast till zeroes (forecast on)
 - Show credit card overview
+- Implement outstanding credit card balance
+- Register credit card transaction
+- Register credit card payment
 - Add "real balance" when credit card debt exists
 - Implement authentication
 

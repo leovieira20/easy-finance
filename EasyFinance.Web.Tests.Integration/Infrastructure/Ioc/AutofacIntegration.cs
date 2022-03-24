@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Autofac;
+using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Db;
@@ -50,6 +51,7 @@ public class AutofacIntegration
         builder.RegisterType<CreditCardSettingsClient>().SingleInstance();
 
         builder.RegisterType<InMemoryEfCreditCardRepository>().As<ICreditCardRepository>().SingleInstance();
+        builder.RegisterType<InMemoryEFCreditCardTransactionRepository>().As<ICreditCardTransactionRepository>().SingleInstance();
 
         return builder;
     }

@@ -8,7 +8,7 @@ class CreditCardRepository : ICreditCardRepository
     {
     }
 
-    public Task<CreditCard?> GetAsync(Guid creditCardId)
+    public Task<CreditCard?> GetAsync(CreditCardId creditCardId)
     {
         throw new NotImplementedException();
     }

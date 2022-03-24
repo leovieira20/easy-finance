@@ -1,4 +1,5 @@
 using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
+using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Db;
 using MediatR;
@@ -24,6 +25,7 @@ public class CustomWebApplicationFactory<Program> : WebApplicationFactory<Progra
             services.AddScoped<IBankAccountRepository, InMemoryEfBankAccountRepository>();
             services.AddScoped<IBankAccountTransactionRepository, InMemoryEfBankAccountTransactionRepository>();
             services.AddScoped<ICreditCardRepository, InMemoryEfCreditCardRepository>();
+            services.AddScoped<ICreditCardTransactionRepository, InMemoryEFCreditCardTransactionRepository>();
             
             var sp = services.BuildServiceProvider();
 

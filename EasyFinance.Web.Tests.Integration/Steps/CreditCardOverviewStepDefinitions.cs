@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyFinance.Application.CreditCardCommands.Overview;
+using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -10,24 +12,27 @@ namespace EasyFinance.Web.Tests.Integration.Steps;
 [Binding]
 public class CreditCardOverviewStepDefinitions
 {
+    private readonly ScenarioContext _context;
     private readonly CreditCardOverviewClient _client;
-    private CreditCardOverviewDto _overview = null!;
+    private IEnumerable<CreditCardMonthlyBreakdownDto> _overview = null!;
 
-    public CreditCardOverviewStepDefinitions(CreditCardOverviewClient client)
+    public CreditCardOverviewStepDefinitions(ScenarioContext context, CreditCardOverviewClient client)
     {
+        _context = context;
         _client = client;
     }
     
     [When(@"credit card overview is set for (.*) and (.*)")]
     public async Task WhenCreditCardOverviewIsSetForDates(DateTime startDate, DateTime endDate)
     {
-        var (overview, _) = await _client.Get(startDate, endDate);
+        var creditCard = _context.Get<CreditCard>(nameof(CreditCard));
+        var (overview, _) = await _client.Get(creditCard.Id, startDate, endDate);
         _overview = overview!;
     }
 
     [Then(@"credit card overview per month shows")]
     public void ThenCreditCardOverviewPerMonthShows(Table table)
     {
-        table.CompareToSet(_overview.Breakdowns);
+        table.CompareToSet(_overview);
     }
 }
