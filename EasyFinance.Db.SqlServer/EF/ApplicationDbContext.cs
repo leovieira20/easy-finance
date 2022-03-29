@@ -1,12 +1,16 @@
-using EasyFinance.Db.SqlServer.EF.EntityTypeConfiguration;
+﻿using EasyFinance.Db.SqlServer.EF.EntityTypeConfiguration;
 using EasyFinance.Domain.Accounts;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace EasyFinance.Web.Tests.Integration.Infrastructure.Db;
+namespace EasyFinance.Db.SqlServer.EF;
 
 public class ApplicationDbContext : DbContext
 {
+    public ApplicationDbContext()
+    {
+    }
+
     public ApplicationDbContext([NotNull] DbContextOptions options) : base(options)
     {
     }

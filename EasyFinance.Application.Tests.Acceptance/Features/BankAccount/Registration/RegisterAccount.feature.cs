@@ -25,7 +25,7 @@ namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Registra
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = new string[] {
+        private string[] _featureTags = new string[] {
                 "bankAccount"};
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
@@ -42,7 +42,8 @@ namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Registra
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/BankAccount/Registration", "RegisterAccount", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/BankAccount/Registration", "RegisterAccount", null, ProgrammingLanguage.CSharp, new string[] {
+                        "bankAccount"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -52,27 +53,27 @@ namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Registra
             testRunner = null;
         }
         
-        public void TestInitialize()
+        public virtual void TestInitialize()
         {
         }
         
-        public void TestTearDown()
+        public virtual void TestTearDown()
         {
             testRunner.OnScenarioEnd();
         }
         
-        public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
+        public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<Xunit.Abstractions.ITestOutputHelper>(_testOutputHelper);
         }
         
-        public void ScenarioStart()
+        public virtual void ScenarioStart()
         {
             testRunner.OnScenarioStart();
         }
         
-        public void ScenarioCleanup()
+        public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
@@ -85,15 +86,25 @@ namespace EasyFinance.Application.Tests.Acceptance.Features.BankAccount.Registra
         [Xunit.SkippableFactAttribute(DisplayName="Register Account")]
         [Xunit.TraitAttribute("FeatureTitle", "RegisterAccount")]
         [Xunit.TraitAttribute("Description", "Register Account")]
-        public void RegisterAccount()
+        public virtual void RegisterAccount()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register Account", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
             {
                 testRunner.SkipScenario();
             }

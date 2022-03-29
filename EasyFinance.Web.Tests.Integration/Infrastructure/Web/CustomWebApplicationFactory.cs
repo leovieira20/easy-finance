@@ -18,7 +18,7 @@ public class CustomWebApplicationFactory<Program> : WebApplicationFactory<Progra
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                InMemoryDbContextOptionsExtensions.UseInMemoryDatabase(options, "InMemoryDbForTesting");
+                options.UseInMemoryDatabase("InMemoryDbForTesting");
             });
 
             services.AddMediatR(typeof(RegisterBankAccountCommandHandler));

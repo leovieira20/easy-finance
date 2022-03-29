@@ -8,6 +8,15 @@
 
 `dotnet msbuild -t:CleanGenerated`
 
+# EF
+
+## run EF migrations
+
+### add
+within EasyFinance.Web project
+
+`dotnet ef migrations add Initial -p ../EasyFinance.Db.SqlServer -o ./EF/Migrations`
+
 # Backlog
 
 ## features
