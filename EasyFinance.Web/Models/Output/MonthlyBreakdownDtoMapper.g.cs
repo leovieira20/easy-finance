@@ -1,6 +1,7 @@
 using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
+using EasyFinance.Web.Models.Output;
 
-namespace EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class MonthlyBreakdownDtoMapper
     {

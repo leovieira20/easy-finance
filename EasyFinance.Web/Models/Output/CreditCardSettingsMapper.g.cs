@@ -1,7 +1,8 @@
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
+using EasyFinance.Web.Models.Output;
 
-namespace EasyFinance.Domain.Accounts
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class CreditCardSettingsMapper
     {

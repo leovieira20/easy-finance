@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 
-namespace EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview
+namespace EasyFinance.Web.Models.Output
 {
     public partial record BankAccountOverviewDtoPublicModel
     {

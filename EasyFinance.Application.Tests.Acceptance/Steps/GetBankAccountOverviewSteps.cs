@@ -11,7 +11,7 @@ public class GetBankAccountOverviewSteps
 {
     private readonly IBankAccountTransactionRepository _bankAccountTransactionRepository;
     private readonly GetBankAccountOverviewCommandHandler _sut;
-    private BankAccountOverviewDto _result = null!;
+    private List<MonthlyBreakdownDto> _result = null!;
 
     public GetBankAccountOverviewSteps(ScenarioContext scenarioContext)
     {
@@ -50,7 +50,7 @@ public class GetBankAccountOverviewSteps
         foreach (var row in table.Rows)
         {
             var expectedMonth = today.AddMonths(row.GetInt32("Month")).Month;
-            var breakdown = _result.Breakdowns.Single(x => x.Month == expectedMonth);
+            var breakdown = _result.Single(x => x.Month == expectedMonth);
             breakdown.Balance.Should().Be(row.GetDecimal("Balance"));
         }
     }

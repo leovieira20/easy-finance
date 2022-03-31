@@ -1,6 +1,7 @@
 using EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
+using EasyFinance.Web.Models.Output;
 
-namespace EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class BankAccountTransactionDtoMapper
     {

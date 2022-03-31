@@ -1,6 +1,6 @@
 using System;
 
-namespace EasyFinance.Application.BankAccountCommands.RegisterBankAccount
+namespace EasyFinance.Web.Models.Output
 {
     public partial record BankAccountDtoPublicModel
     {

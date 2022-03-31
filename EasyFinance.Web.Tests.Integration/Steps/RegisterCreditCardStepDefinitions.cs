@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using EasyFinance.Application.CreditCardCommands.Register;
+using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
 using TechTalk.SpecFlow;

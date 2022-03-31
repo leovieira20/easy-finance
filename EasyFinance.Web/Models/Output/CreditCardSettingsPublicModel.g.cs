@@ -1,7 +1,7 @@
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 
-namespace EasyFinance.Domain.Accounts
+namespace EasyFinance.Web.Models.Output
 {
     public partial record CreditCardSettingsPublicModel
     {

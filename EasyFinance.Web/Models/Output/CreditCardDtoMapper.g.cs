@@ -1,6 +1,7 @@
 using EasyFinance.Application.CreditCardCommands.Register;
+using EasyFinance.Web.Models.Output;
 
-namespace EasyFinance.Application.CreditCardCommands.Register
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class CreditCardDtoMapper
     {

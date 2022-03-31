@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 
-class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverviewCommand, BankAccountOverviewDto>
+class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverviewCommand, List<MonthlyBreakdownDto>>
 {
     private readonly IBankAccountTransactionRepository _bankAccountRepository;
 
@@ -12,7 +12,7 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
         _bankAccountRepository = bankAccountRepository;
     }
     
-    public async Task<BankAccountOverviewDto> Handle(GetBankAccountOverviewCommand request, CancellationToken cancellationToken)
+    public async Task<List<MonthlyBreakdownDto>> Handle(GetBankAccountOverviewCommand request, CancellationToken cancellationToken)
     {
         var transactions = await _bankAccountRepository
             .GetForBankAccountAsync(request.bankAccountId, request.startDate, request.endDate);
@@ -20,10 +20,11 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
         var breakdowns = new List<MonthlyBreakdownDto>();
         var currentBalance = 0m;
 
-        foreach (var months in transactions.GroupBy(x => x.Date.Month))
+        foreach (var yearAndMonth in transactions.GroupBy(x => new { x.Date.Year, x.Date.Month}))
         {
             var sumOfTransactions = transactions
-                .Where(x => x.Date.Month == months.Key)
+                .Where(x => x.Date.Year == yearAndMonth.Key.Year)
+                .Where(x => x.Date.Month == yearAndMonth.Key.Month)
                 .Sum(x => x.Amount);
 
             currentBalance += sumOfTransactions;
@@ -31,15 +32,10 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
             breakdowns.Add(new MonthlyBreakdownDto
             {
                 Balance = currentBalance,
-                Month = months.Key
+                Month = yearAndMonth.Key.Month
             });
         }
 
-        var overview = new BankAccountOverviewDto
-        {
-            Breakdowns = breakdowns
-        };
-
-        return overview;
+        return breakdowns;
     }
 }

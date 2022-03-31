@@ -1,6 +1,6 @@
 using System;
 
-namespace EasyFinance.Application.CreditCardCommands.Register
+namespace EasyFinance.Web.Models.Output
 {
     public partial record CreditCardDtoPublicModel
     {

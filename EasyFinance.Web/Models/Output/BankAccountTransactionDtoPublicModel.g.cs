@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions
+namespace EasyFinance.Web.Models.Output
 {
     public partial record BankAccountTransactionDtoPublicModel
     {

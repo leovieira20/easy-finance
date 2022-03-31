@@ -16,7 +16,6 @@ public class MapsterConfigurations : ICodeGenerationRegister
             .ForType<BankAccountDto>()
             .ForType<BankAccountSummaryDto>()
             .ForType<BankAccountTransactionDto>()
-            .ForType<BankAccountOverviewDto>()
             .ForType<MonthlyBreakdownDto>()
             .ForType<CreditCardDto>()
             .ForType<CreditCardSettings>();
@@ -25,7 +24,6 @@ public class MapsterConfigurations : ICodeGenerationRegister
             .ForType<BankAccountDto>()
             .ForType<BankAccountSummaryDto>()
             .ForType<BankAccountTransactionDto>()
-            .ForType<BankAccountOverviewDto>()
             .ForType<MonthlyBreakdownDto>()
             .ForType<CreditCardDto>()
             .ForType<CreditCardSettings>();

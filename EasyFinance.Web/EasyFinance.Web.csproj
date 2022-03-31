@@ -34,9 +34,9 @@
     </ItemGroup>
     <Target Name="Mapster" AfterTargets="AfterBuild">
         <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet tool restore" />
-        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster model -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot; -r" />
-        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster extension -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot;" />
-        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster mapper -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot;" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster model -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot; -n &quot;$(ProjectName).Models.Output&quot; -r" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster extension -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot; -n &quot;$(ProjectName).Models.Output&quot;" />
+        <Exec WorkingDirectory="$(ProjectDir)" Command="dotnet mapster mapper -a &quot;$(TargetDir)$(ProjectName).dll&quot; -o &quot;Models/Output/&quot; -n &quot;$(ProjectName).Models.Output&quot;" />
     </Target>
     <Target Name="CleanGenerated">
         <Delete Files="@(Generated)" />
@@ -45,5 +45,9 @@
     <ItemGroup>
         <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
         <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\Output" />
     </ItemGroup>
 </Project>

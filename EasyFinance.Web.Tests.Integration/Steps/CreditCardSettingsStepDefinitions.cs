@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using EasyFinance.Domain.Accounts;
+using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
 using TechTalk.SpecFlow;

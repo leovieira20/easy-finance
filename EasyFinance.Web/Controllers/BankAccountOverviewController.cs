@@ -1,6 +1,7 @@
 using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Models.Input;
+using EasyFinance.Web.Models.Output;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,11 @@ public class BankAccountOverviewController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get(GetBankAccountOverviewRequest request)
     {
-        var bankAccountOverview = await _mediator
+        var monthlyBreakdowns = await _mediator
             .Send(new GetBankAccountOverviewCommand(new BankAccountId(request.Id),
                 request.StartDate,
                 request.EndDate));
         
-        return Ok(bankAccountOverview.AdaptToPublicModel());
+        return Ok(monthlyBreakdowns.Select(x => x.AdaptToPublicModel()));
     }
 }

@@ -1,6 +1,7 @@
 using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
+using EasyFinance.Web.Models.Output;
 
-namespace EasyFinance.Application.BankAccountCommands.RegisterBankAccount
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class BankAccountDtoMapper
     {

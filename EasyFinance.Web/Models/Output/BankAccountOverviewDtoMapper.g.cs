@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
 
-namespace EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview
+namespace EasyFinance.Web.Models.Output
 {
     public static partial class BankAccountOverviewDtoMapper
     {
-        public static BankAccountOverviewDtoPublicModel AdaptToPublicModel(this BankAccountOverviewDto p1)
+        public static BankAccountOverviewDtoPublicModel AdaptToPublicModel(this IList<MonthlyBreakdownDto> p1)
         {
-            return p1 == null ? null : new BankAccountOverviewDtoPublicModel() {Breakdowns = funcMain1(p1.Breakdowns)};
+            return p1 == null ? null : new BankAccountOverviewDtoPublicModel() {Breakdowns = funcMain1(p1)};
         }
-        public static BankAccountOverviewDtoPublicModel AdaptTo(this BankAccountOverviewDto p3, BankAccountOverviewDtoPublicModel p4)
+        public static BankAccountOverviewDtoPublicModel AdaptTo(this IList<MonthlyBreakdownDto> p3, BankAccountOverviewDtoPublicModel p4)
         {
             if (p3 == null)
             {
@@ -17,7 +17,7 @@ namespace EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview
             }
             BankAccountOverviewDtoPublicModel result = p4 ?? new BankAccountOverviewDtoPublicModel();
             
-            result.Breakdowns = funcMain2(p3.Breakdowns, result.Breakdowns);
+            result.Breakdowns = funcMain2(p3, result.Breakdowns);
             return result;
             
         }

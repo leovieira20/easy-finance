@@ -1,4 +1,4 @@
-namespace EasyFinance.Application.BankAccountTransactionCommands.RegisterDepositToBankAccount
+namespace EasyFinance.Web.Models.Output
 {
     public partial record BankAccountSummaryDtoPublicModel
     {
