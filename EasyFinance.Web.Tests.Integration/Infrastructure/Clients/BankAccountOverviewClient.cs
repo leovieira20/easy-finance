@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ public class BankAccountOverviewClient
         _httpClient = webApplicationFactory.CreateClient();
     }
 
-    public async Task<(BankAccountOverviewPublicModel? bankAccountOverview, HttpResponseMessage response)> GetOverviewAsync(Guid bankAccountId, int months)
+    public async Task<(List<MonthlyBreakdownDtoPublicModel>? bankAccountOverview, HttpResponseMessage response)> GetOverviewAsync(Guid bankAccountId, int months)
     {
         var startDate = DateTime.UtcNow;
         var endDate = startDate.AddMonths(months);
@@ -28,7 +29,7 @@ public class BankAccountOverviewClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<BankAccountOverviewPublicModel>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<List<MonthlyBreakdownDtoPublicModel>>(), response)
         };
     }
 }

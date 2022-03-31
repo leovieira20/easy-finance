@@ -6,9 +6,9 @@ namespace EasyFinance.Db.SqlServer;
 
 class BankAccountTransactionRepository : IBankAccountTransactionRepository
 {
-    private readonly ApplicationDbContext _context;
+    private readonly EasyFinanceDbContext _context;
 
-    public BankAccountTransactionRepository(ApplicationDbContext context)
+    public BankAccountTransactionRepository(EasyFinanceDbContext context)
     {
         _context = context;
     }

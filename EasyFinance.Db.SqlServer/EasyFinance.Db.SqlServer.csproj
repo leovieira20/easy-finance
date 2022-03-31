@@ -4,7 +4,13 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Configurations>Debug;Release;IntegrationTests</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />

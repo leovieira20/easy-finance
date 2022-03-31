@@ -14,7 +14,7 @@ class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAccountCom
 
     public async Task<BankAccountDto> Handle(RegisterBankAccountCommand request, CancellationToken cancellationToken)
     {
-        var bankAccount = Domain.Accounts.BankAccount.Create(request.BankAccountName);
+        var bankAccount = BankAccount.Create(request.BankAccountName);
 
         await _repository.CreateAsync(bankAccount);
         

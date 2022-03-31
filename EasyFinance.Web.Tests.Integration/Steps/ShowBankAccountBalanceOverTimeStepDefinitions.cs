@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
 using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
@@ -17,7 +17,7 @@ public class ShowBankAccountBalanceOverTimeStepDefinitions
     private readonly BankAccountOverviewClient _bankAccountOverviewClient;
     private readonly BankAccountTransactionClient _bankAccountTransactionClient;
     private BankAccountDtoPublicModel? _bankAccount;
-    private BankAccountOverviewPublicModel? _bankAccountOverview;
+    private List<MonthlyBreakdownDtoPublicModel>? _bankAccountOverview;
 
     public ShowBankAccountBalanceOverTimeStepDefinitions(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient, BankAccountTransactionClient bankAccountTransactionClient)
     {
@@ -60,7 +60,7 @@ public class ShowBankAccountBalanceOverTimeStepDefinitions
         var today = DateTime.UtcNow;
         foreach (var (month, balance) in monthlyBreakdown)
         {
-            var aMonthBreakdown = _bankAccountOverview!.Breakdowns.Single(x => x.Month == today.AddMonths(month).Month);
+            var aMonthBreakdown = _bankAccountOverview!.Single(x => x.Month == today.AddMonths(month).Month);
             aMonthBreakdown.Balance.Should().Be(balance);
         }
     }

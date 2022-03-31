@@ -1,7 +1,6 @@
 using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
 using EasyFinance.Db.SqlServer;
 using EasyFinance.Db.SqlServer.EF;
-using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<EasyFinanceDbContext>(options =>
 {
     options
         .ReplaceService<IValueConverterSelector, StronglyTypedIdValueConverterSelector>()
@@ -46,18 +45,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-using (var dbContext = app.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>())
+if (!app.Environment.IsEnvironment("IntegrationTests"))
 {
+    using var dbContext = app.Services.CreateScope().ServiceProvider.GetRequiredService<EasyFinanceDbContext>();
     dbContext.Database.EnsureDeleted();
     dbContext.Database.Migrate();
 
-    var bankAccount = BankAccount.Create(new BankAccountId(Guid.Parse("5395CE24-2C9A-4DDD-8838-52D02890CEC1")), "Test bank account");
-    
+    var bankAccount = BankAccount.Create(new BankAccountId(Guid.Parse("5395CE24-2C9A-4DDD-8838-52D02890CEC1")),
+        "Test bank account");
+
     dbContext.BankAccounts.Add(bankAccount);
     dbContext.SaveChanges();
-    
+
     bankAccount.RegisterPayment(1, new DateTime(2022, 01, 01));
-    
+
     dbContext.SaveChanges();
 }
 

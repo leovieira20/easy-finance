@@ -14,7 +14,7 @@ class SetCreditCardDefaultPaymentAmountCommandHandler : IRequestHandler<SetCredi
     
     public async Task<CreditCardSettings> Handle(SetCreditCardDefaultPaymentAmountCommand request, CancellationToken cancellationToken)
     {
-        var creditCard = await _repository.GetSettingsAsync(request.creditCardId);
+        var creditCard = await _repository.GetSettingsAsync(new CreditCardId(request.creditCardId));
 
         creditCard?.SetDefaultPaymentAmount(request.amount);
 

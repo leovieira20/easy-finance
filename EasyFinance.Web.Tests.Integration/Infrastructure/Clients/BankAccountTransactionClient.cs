@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.BankAccountTransactionCommands.RegisterDepositToBankAccount;
-using EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Input;
 using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;

@@ -17,7 +17,7 @@ class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOvervie
     
     public async Task<IEnumerable<CreditCardMonthlyBreakdownDto>> Handle(GetCreditCardOverviewCommand request, CancellationToken cancellationToken)
     {
-        var creditCard = await _creditCardRepository.GetAsync(request.CreditCardId);
+        var creditCard = await _creditCardRepository.GetWithSettingsAsync(request.CreditCardId);
         
         // TODO add null check for credit card
         var defaultPayment = creditCard!.Settings.DefaultPaymentAmount;

@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyFinance.Db.SqlServer.EF;
 
-public class ApplicationDbContext : DbContext
+public class EasyFinanceDbContext : DbContext
 {
-    public ApplicationDbContext()
+    public EasyFinanceDbContext()
     {
     }
 
-    public ApplicationDbContext([NotNull] DbContextOptions options) : base(options)
+    public EasyFinanceDbContext([NotNull] DbContextOptions options) : base(options)
     {
     }
 

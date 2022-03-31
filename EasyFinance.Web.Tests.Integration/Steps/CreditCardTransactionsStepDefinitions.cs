@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using TechTalk.SpecFlow;
@@ -18,7 +19,7 @@ public class CreditCardTransactionsStepDefinitions
     }
     
     [Given(@"a credit card has transactions")]
-    public void GivenACreditCardHasTransactions(Table table)
+    public async Task GivenACreditCardHasTransactions(Table table)
     {
         var transactions = table.CreateSet<CreditCardTransaction>();
 
@@ -27,7 +28,7 @@ public class CreditCardTransactionsStepDefinitions
         foreach (var transaction in transactions)
         {
             transaction.CreditCardId = creditCard.Id;
-            _repository.RegisterAsync(transaction);
+            await _repository.RegisterAsync(transaction);
         }
     }
 }

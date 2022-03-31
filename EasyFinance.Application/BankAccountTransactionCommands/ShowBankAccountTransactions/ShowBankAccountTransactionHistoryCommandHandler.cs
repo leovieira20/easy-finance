@@ -14,7 +14,7 @@ class ShowBankAccountTransactionHistoryCommandHandler : IRequestHandler<ShowBank
 
     public async Task<List<BankAccountTransactionDto>> Handle(ShowBankAccountTransactionHistoryCommand request, CancellationToken cancellationToken)
     {
-        var bankAccount = await _repository.GetAsync(new BankAccountId(request.BankAccountId));
+        var bankAccount = await _repository.GetWithTransactionsAsync(new BankAccountId(request.BankAccountId));
         if (bankAccount == null)
             return new List<BankAccountTransactionDto>();
 

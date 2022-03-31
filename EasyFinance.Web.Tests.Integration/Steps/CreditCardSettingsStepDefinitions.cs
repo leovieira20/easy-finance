@@ -12,12 +12,16 @@ public class CreditCardSettingsStepDefinitions
 {
     private readonly ScenarioContext _scenarioContext;
     private readonly CreditCardSettingsClient _client;
+    private readonly ICreditCardRepository _creditCardRepository;
     private ClientResponse<CreditCardSettingsPublicModel> _response = null!;
 
-    public CreditCardSettingsStepDefinitions(ScenarioContext scenarioContext, CreditCardSettingsClient client)
+    public CreditCardSettingsStepDefinitions(ScenarioContext scenarioContext, 
+        CreditCardSettingsClient client, 
+        ICreditCardRepository creditCardRepository)
     {
         _scenarioContext = scenarioContext;
         _client = client;
+        _creditCardRepository = creditCardRepository;
     }
     
     [Given(@"the credit card has a default payment amount of (.*) euros")]
@@ -26,6 +30,7 @@ public class CreditCardSettingsStepDefinitions
         var creditCard = _scenarioContext.Get<CreditCard>(nameof(CreditCard));
 
         creditCard.SetDefaultPaymentAmount(amount);
+        _creditCardRepository.Update(creditCard);
     }
 
     [When(@"I set the limit to (.*) euros")]

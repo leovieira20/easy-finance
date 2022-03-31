@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Autofac;
+using EasyFinance.Db.SqlServer;
+using EasyFinance.Db.SqlServer.EF;
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
-using EasyFinance.Web.Tests.Integration.Infrastructure.Db;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 using EasyFinance.Web.Tests.Integration.Steps;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -30,13 +31,13 @@ public class AutofacIntegration
             .SingleInstance();
 
         var dbContextOptionsExtensions = new Dictionary<Type, IDbContextOptionsExtension>();
-        var dbContextOptions = new DbContextOptions<ApplicationDbContext>(dbContextOptionsExtensions);
+        var dbContextOptions = new DbContextOptions<EasyFinanceDbContext>(dbContextOptionsExtensions);
         
-        var dbContextOptionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>(dbContextOptions)
+        var dbContextOptionsBuilder = new DbContextOptionsBuilder<EasyFinanceDbContext>(dbContextOptions)
             .UseInMemoryDatabase("InMemoryDbForTesting");
         
         builder
-            .RegisterType<ApplicationDbContext>()
+            .RegisterType<EasyFinanceDbContext>()
             .WithParameter("options", dbContextOptionsBuilder.Options)
             .InstancePerLifetimeScope();
 
@@ -50,8 +51,8 @@ public class AutofacIntegration
         builder.RegisterType<CreditCardOverviewClient>().SingleInstance();
         builder.RegisterType<CreditCardSettingsClient>().SingleInstance();
 
-        builder.RegisterType<InMemoryEfCreditCardRepository>().As<ICreditCardRepository>().SingleInstance();
-        builder.RegisterType<InMemoryEFCreditCardTransactionRepository>().As<ICreditCardTransactionRepository>().SingleInstance();
+        builder.RegisterType<CreditCardRepository>().As<ICreditCardRepository>().SingleInstance();
+        builder.RegisterType<CreditCardTransactionRepository>().As<ICreditCardTransactionRepository>().SingleInstance();
 
         return builder;
     }

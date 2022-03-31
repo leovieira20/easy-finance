@@ -14,7 +14,7 @@ class SetCreditCardLimitCommandHandler : IRequestHandler<SetCreditCardLimitComma
     
     public async Task<CreditCardSettings> Handle(SetCreditCardLimitCommand request, CancellationToken cancellationToken)
     {
-        var creditCard = await _repository.GetSettingsAsync(request.creditCardId);
+        var creditCard = await _repository.GetSettingsAsync(new CreditCardId(request.creditCardId));
 
         creditCard?.SetLimit(request.amount);
 

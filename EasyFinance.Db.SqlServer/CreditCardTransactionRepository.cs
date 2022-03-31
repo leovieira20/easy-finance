@@ -1,18 +1,32 @@
+using EasyFinance.Db.SqlServer.EF;
 using EasyFinance.Domain;
 using EasyFinance.Domain.Accounts;
+using Microsoft.EntityFrameworkCore;
 
 namespace EasyFinance.Db.SqlServer;
 
 class CreditCardTransactionRepository : ICreditCardTransactionRepository
 {
-    public Task<List<CreditCardTransaction>> GetAsync(CreditCardId requestCreditCardId, DateTime requestStartDate,
-        DateTime requestEndDate)
+    private readonly EasyFinanceDbContext _context;
+
+    public CreditCardTransactionRepository(EasyFinanceDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    
+    public Task<List<CreditCardTransaction>> GetAsync(CreditCardId requestCreditCardId, DateTime requestStartDate, DateTime requestEndDate)
+    {
+        return _context
+            .CreditCardTransactions
+            .Where(x => x.CreditCardId == requestCreditCardId)
+            .Where(x => x.TransactionDate >= requestStartDate)
+            .Where(x => x.TransactionDate <= requestEndDate)
+            .ToListAsync();
     }
 
     public Task RegisterAsync(CreditCardTransaction transaction)
     {
-        throw new NotImplementedException();
+        _context.CreditCardTransactions.Add(transaction);
+        return _context.SaveChangesAsync();
     }
 }

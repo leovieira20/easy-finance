@@ -39,7 +39,7 @@ public class BankAccountRepositoryStepDefinitions
         
         bankAccount.RegisterDeposit(transaction.Amount, DateTime.UtcNow);
 
-        _repository.GetAsync(default)
+        _repository.GetWithTransactionsAsync(default)
             .ReturnsForAnyArgs(bankAccount);
     }
 }

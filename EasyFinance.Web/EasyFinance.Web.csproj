@@ -6,6 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <AssemblyName>EasyFinance.Web</AssemblyName>
         <RootNamespace>EasyFinance.Web</RootNamespace>
+        <Configurations>Debug;Release;IntegrationTests</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <ItemGroup>

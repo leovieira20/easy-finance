@@ -1,7 +1,6 @@
 using EasyFinance.Application.CreditCardSettingsCommands.SetDefaultPaymentAmount;
 using EasyFinance.Application.CreditCardSettingsCommands.SetLimit;
 using EasyFinance.Application.CreditCardSettingsCommands.SetThreshold;
-using EasyFinance.Domain.Accounts;
 using EasyFinance.Web.Models.Output;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyFinance.Db.SqlServer.EF.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(EasyFinanceDbContext))]
     [Migration("20220329104135_Initial")]
     partial class Initial
     {
