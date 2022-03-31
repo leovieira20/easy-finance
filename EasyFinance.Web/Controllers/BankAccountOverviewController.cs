@@ -25,6 +25,6 @@ public class BankAccountOverviewController : ControllerBase
                 request.StartDate,
                 request.EndDate));
         
-        return Ok(monthlyBreakdowns.Select(x => x.AdaptToPublicModel()));
+        return Ok(monthlyBreakdowns);
     }
 }

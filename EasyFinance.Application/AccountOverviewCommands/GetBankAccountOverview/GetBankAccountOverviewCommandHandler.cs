@@ -32,6 +32,8 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
             breakdowns.Add(new MonthlyBreakdownDto
             {
                 Balance = currentBalance,
+                Date = new DateTime(yearAndMonth.Key.Year, yearAndMonth.Key.Month, 1),
+                Year = yearAndMonth.Key.Year,
                 Month = yearAndMonth.Key.Month
             });
         }

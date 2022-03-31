@@ -9,6 +9,8 @@ namespace EasyFinance.Web.Models.Output
         {
             return p1 == null ? null : new MonthlyBreakdownDtoPublicModel()
             {
+                Date = p1.Date,
+                Year = p1.Year,
                 Month = p1.Month,
                 Balance = p1.Balance
             };
@@ -21,6 +23,8 @@ namespace EasyFinance.Web.Models.Output
             }
             MonthlyBreakdownDtoPublicModel result = p3 ?? new MonthlyBreakdownDtoPublicModel();
             
+            result.Date = p2.Date;
+            result.Year = p2.Year;
             result.Month = p2.Month;
             result.Balance = p2.Balance;
             return result;
