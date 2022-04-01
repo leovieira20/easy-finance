@@ -24,25 +24,38 @@ class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOvervie
         
         var transactions = await _transactionRepository.GetAsync(request.CreditCardId, request.StartDate, request.EndDate);
         var groupedTransactions = transactions
-            .GroupBy(x => new { x.TransactionDate.Year, x.TransactionDate.Month })
+            .GroupBy(x => new { x.Date.Year, x.Date.Month })
             .ToList();
 
         var overviews = new List<CreditCardMonthlyBreakdownDto>();
 
+        var overallBalance = 0m;
         var forecastBalance = 0m;
         var currentDate = DateTime.UtcNow;
+
         foreach (var monthlyTransactions in groupedTransactions)
         {
             currentDate = new DateTime(monthlyTransactions.Key.Year, monthlyTransactions.Key.Month, 1);
             
-            var realBalance = monthlyTransactions.Sum(x => x.TransactionAmount);
-            forecastBalance = realBalance - defaultPayment;
+            var sumOfExpenses = monthlyTransactions
+                .Where(x => x.Type == CreditCardTransactionType.Expense)
+                .Sum(x => x.CalculationAmount);
+            
+            var sumOfPayments = monthlyTransactions
+                .Where(x => x.Type == CreditCardTransactionType.Payment)
+                .Sum(x => x.CalculationAmount);
+            
+            overallBalance += sumOfExpenses;
+            forecastBalance = sumOfExpenses - defaultPayment;
             
             overviews.Add(new CreditCardMonthlyBreakdownDto
             {
                 Date = currentDate,
-                Balance = realBalance,
-                ForecastBalance = forecastBalance
+                OverallBalance = overallBalance,
+                MonthBalance = sumOfExpenses,
+                ForecastBalance = forecastBalance,
+                Expenses = sumOfExpenses,
+                Payments = sumOfPayments,
             });
         }
 
@@ -59,7 +72,7 @@ class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOvervie
             overviews.Add(new CreditCardMonthlyBreakdownDto
             {
                 Date = currentDate,
-                Balance = forecastBalance,
+                MonthBalance = forecastBalance,
                 ForecastBalance = forecastBalance
             });
         }

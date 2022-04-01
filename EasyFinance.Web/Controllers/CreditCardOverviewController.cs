@@ -1,5 +1,6 @@
 using EasyFinance.Application.CreditCardCommands.Overview;
 using EasyFinance.Domain.Accounts;
+using EasyFinance.Web.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,10 @@ public class CreditCardOverviewController : ControllerBase
         _mediator = mediator;
     }
     
-    [HttpGet("{creditCardId}")]
-    public async Task<IActionResult> Get(Guid creditCardId, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+    [HttpGet]
+    public async Task<IActionResult> Get(CreditCardOverviewRequest request)
     {
-        var response = await _mediator.Send(new GetCreditCardOverviewCommand(new CreditCardId(creditCardId), startDate, endDate));
+        var response = await _mediator.Send(new GetCreditCardOverviewCommand(new CreditCardId(request.Id), request.StartDate, request.EndDate));
 
         return Ok(response);
     }

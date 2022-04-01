@@ -37,7 +37,7 @@ public class BankAccountRepositoryStepDefinitions
         
         var bankAccount = TestBankAccountFactory.Make();
         
-        bankAccount.RegisterDeposit(transaction.Amount, DateTime.UtcNow);
+        bankAccount.RegisterCredit(DateTime.UtcNow, transaction.Amount, string.Empty);
 
         _repository.GetWithTransactionsAsync(default)
             .ReturnsForAnyArgs(bankAccount);

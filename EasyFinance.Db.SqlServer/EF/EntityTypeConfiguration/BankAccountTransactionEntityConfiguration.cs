@@ -17,7 +17,10 @@ public class BankAccountTransactionEntityTypeConfiguration : IEntityTypeConfigur
             .HasConversion<BankAccountId.EfCoreValueConverter>();
 
         builder.Property(x => x.Amount)
-            .HasPrecision(18, 4);
+            .HasPrecision(18, 2);
+        
+        builder.Property(x => x.CalculationAmount)
+            .HasPrecision(18, 2);
 
         builder.Property(x => x.Date)
             .HasColumnType("datetime2(7)");

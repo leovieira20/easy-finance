@@ -7,17 +7,28 @@ public class BankAccountTransaction
         Id = BankAccountTransactionId.New();
     }
 
-    public BankAccountTransaction(decimal amount, DateTime date)
+    public BankAccountTransaction(
+        DateTime date,
+        BankAccountTransactionType type,
+        decimal amount,
+        decimal calculationAmount,
+        string description)
         : this()
     {
-        Amount = amount;
         Date = date;
+        Type = type;
+        Amount = amount;
+        CalculationAmount = calculationAmount;
+        Description = description;
     }
 
 
     public BankAccountTransactionId Id { get; init; }
-    public decimal Amount { get; private set; }
     public DateTime Date { get; }
+    public BankAccountTransactionType Type { get; set; }
+    public decimal Amount { get; private set; }
+    public string Description { get; set; } = string.Empty;
+    public decimal CalculationAmount { get; set; }
 
     public BankAccountId? BankAccountId { get; set; }
 }

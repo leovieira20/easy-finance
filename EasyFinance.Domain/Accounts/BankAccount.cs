@@ -33,14 +33,22 @@ public class BankAccount
         Id = BankAccountId.New();
     }
 
-    public void RegisterDeposit(decimal amount, DateTime date)
+    public void RegisterCredit(DateTime date, decimal amount, string description)
     {
-        Transactions.Add(new BankAccountTransaction(amount, date));
+        Transactions.Add(new BankAccountTransaction(date, 
+            BankAccountTransactionType.Credit, 
+            amount, 
+            amount, 
+            description));
     }
 
-    public void RegisterPayment(decimal amount, DateTime date)
+    public void RegisterDebit(DateTime date, decimal amount, string description)
     {
-        Transactions.Add(new BankAccountTransaction(amount, date));
+        Transactions.Add(new BankAccountTransaction(date, 
+            BankAccountTransactionType.Debit, 
+            amount, 
+            -amount, 
+            description));
     }
 
     public BankAccountId Id { get; init; }

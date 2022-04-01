@@ -12,7 +12,8 @@ namespace EasyFinance.Web.Models.Output
                 Date = p1.Date,
                 Year = p1.Year,
                 Month = p1.Month,
-                Balance = p1.Balance
+                Credits = p1.Credits,
+                Debits = p1.Debits
             };
         }
         public static MonthlyBreakdownDtoPublicModel AdaptTo(this MonthlyBreakdownDto p2, MonthlyBreakdownDtoPublicModel p3)
@@ -26,7 +27,8 @@ namespace EasyFinance.Web.Models.Output
             result.Date = p2.Date;
             result.Year = p2.Year;
             result.Month = p2.Month;
-            result.Balance = p2.Balance;
+            result.Credits = p2.Credits;
+            result.Debits = p2.Debits;
             return result;
             
         }

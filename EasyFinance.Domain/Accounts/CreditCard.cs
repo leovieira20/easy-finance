@@ -8,9 +8,20 @@ public class CreditCard
         Name = name;
     }
     
+    private CreditCard(CreditCardId id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+    
     public static CreditCard Create(string name)
     {
         return new CreditCard(name);
+    }
+    
+    public static CreditCard Create(CreditCardId id, string name)
+    {
+        return new CreditCard(id, name);
     }
     
     public void SetDefaultPaymentAmount(int amount)

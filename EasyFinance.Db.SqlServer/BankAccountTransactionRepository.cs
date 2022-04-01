@@ -21,6 +21,7 @@ class BankAccountTransactionRepository : IBankAccountTransactionRepository
             .Where(x => x.BankAccountId == bankAccountId)
             .Where(x => x.Date >= startDate)
             .Where(x => x.Date <= endDate)
+            .OrderBy(x => x.Date)
             .ToListAsync();
     }
 }

@@ -61,7 +61,7 @@ public class ShowBankAccountBalanceOverTimeStepDefinitions
         foreach (var (month, balance) in monthlyBreakdown)
         {
             var aMonthBreakdown = _bankAccountOverview!.Single(x => x.Month == today.AddMonths(month).Month);
-            aMonthBreakdown.Balance.Should().Be(balance);
+            aMonthBreakdown.Should().Be(balance);
         }
     }
 }

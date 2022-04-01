@@ -22,19 +22,30 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
 
         foreach (var yearAndMonth in transactions.GroupBy(x => new { x.Date.Year, x.Date.Month}))
         {
-            var sumOfTransactions = transactions
+            var sumOfCredits = yearAndMonth
+                .Where(x => x.Type == BankAccountTransactionType.Credit)
                 .Where(x => x.Date.Year == yearAndMonth.Key.Year)
                 .Where(x => x.Date.Month == yearAndMonth.Key.Month)
-                .Sum(x => x.Amount);
+                .Sum(x => x.CalculationAmount);
+            
+            var sumOfDebits = yearAndMonth
+                .Where(x => x.Type == BankAccountTransactionType.Debit)
+                .Where(x => x.Date.Year == yearAndMonth.Key.Year)
+                .Where(x => x.Date.Month == yearAndMonth.Key.Month)
+                .Sum(x => x.CalculationAmount);
 
-            currentBalance += sumOfTransactions;
+            currentBalance += (sumOfCredits + sumOfDebits);
             
             breakdowns.Add(new MonthlyBreakdownDto
             {
-                Balance = currentBalance,
                 Date = new DateTime(yearAndMonth.Key.Year, yearAndMonth.Key.Month, 1),
                 Year = yearAndMonth.Key.Year,
-                Month = yearAndMonth.Key.Month
+                Month = yearAndMonth.Key.Month,
+                OverallBalance = currentBalance,
+                MonthBalance = sumOfCredits + sumOfDebits,
+                RatioOfExpenses = 100 * (Math.Abs(sumOfDebits) / sumOfCredits),
+                Credits = sumOfCredits,
+                Debits = sumOfDebits
             });
         }
 

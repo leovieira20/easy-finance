@@ -19,7 +19,7 @@ class RegisterPaymentToBankAccountCommandHandler : IRequestHandler<RegisterPayme
         if (bankAccount == null)
             return new BankAccountSummaryDto();
 
-        bankAccount.RegisterPayment(request.Amount, request.date);
+        bankAccount.RegisterDebit(request.date, request.Amount, string.Empty);
 
         await _repository.Update(bankAccount);
 

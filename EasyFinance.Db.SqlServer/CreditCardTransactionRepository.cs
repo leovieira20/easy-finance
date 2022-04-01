@@ -19,8 +19,9 @@ class CreditCardTransactionRepository : ICreditCardTransactionRepository
         return _context
             .CreditCardTransactions
             .Where(x => x.CreditCardId == requestCreditCardId)
-            .Where(x => x.TransactionDate >= requestStartDate)
-            .Where(x => x.TransactionDate <= requestEndDate)
+            .Where(x => x.Date >= requestStartDate)
+            .Where(x => x.Date <= requestEndDate)
+            .OrderBy(x => x.Date)
             .ToListAsync();
     }
 

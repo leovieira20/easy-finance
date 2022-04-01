@@ -18,7 +18,7 @@ class RegisterDepositToBankAccountCommandHandler : IRequestHandler<RegisterDepos
         if (bankAccount == null)
             return new BankAccountSummaryDto();
 
-        bankAccount.RegisterDeposit(request.Amount, request.date);
+        bankAccount.RegisterCredit(request.date, request.Amount, string.Empty);
 
         await _repository.Update(bankAccount);
 

@@ -24,7 +24,13 @@ public class GetBankAccountOverviewSteps
     public void GivenMyBankAccountHasSomeTransactions(Table table)
     {
         var transactions = table
-            .CreateSet(x => new BankAccountTransaction(x.GetDecimal("Amount"), DateTime.UtcNow.AddMonths(x.GetInt32("Month"))));
+            .CreateSet(x =>
+            {
+                var date = DateTime.UtcNow.AddMonths(x.GetInt32("Month"));
+                var amount = x.GetDecimal("Amount");
+                
+                return new BankAccountTransaction(date, BankAccountTransactionType.Credit, amount, amount, string.Empty);
+            });
 
         _bankAccountTransactionRepository
             .GetForBankAccountAsync(default, default, default)
@@ -51,7 +57,7 @@ public class GetBankAccountOverviewSteps
         {
             var expectedMonth = today.AddMonths(row.GetInt32("Month")).Month;
             var breakdown = _result.Single(x => x.Month == expectedMonth);
-            breakdown.Balance.Should().Be(row.GetDecimal("Balance"));
+            breakdown.OverallBalance.Should().Be(row.GetDecimal("Balance"));
         }
     }
 }

@@ -16,7 +16,10 @@ public class CreditCardTransactionEntityConfiguration : IEntityTypeConfiguration
         builder.Property(x => x.CreditCardId)
             .HasConversion<CreditCardId.EfCoreValueConverter>();
         
-        builder.Property(x => x.TransactionAmount)
-            .HasPrecision(18, 4);
+        builder.Property(x => x.Amount)
+            .HasPrecision(18, 2);
+        
+        builder.Property(x => x.CalculationAmount)
+            .HasPrecision(18, 2);
     }
 }
