@@ -1,18 +1,9 @@
-using System;
 using System.Linq;
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
 using EasyFinance.Db.SqlServer;
-using EasyFinance.Db.SqlServer.EF;
-using EasyFinance.Domain;
-using EasyFinance.Domain.Accounts;
-using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 

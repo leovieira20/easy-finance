@@ -1,9 +1,8 @@
-using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
-using EasyFinance.Application.BankAccountTransactionCommands.RegisterDepositToBankAccount;
-using EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
-using EasyFinance.Application.CreditCardCommands.Register;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Application.RegisterDepositToBankAccount;
+using BankAccountModule.Application.ShowBankAccountTransactions;
+using CreditCardModule.Application.Register;
+using CreditCardModule.Domain;
 using Mapster;
 
 namespace EasyFinance.Web.Infrastructure;

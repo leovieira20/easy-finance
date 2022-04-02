@@ -30,8 +30,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
-      <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
+      <ProjectReference Include="..\BankAccountModule.Application\BankAccountModule.Application.csproj" />
+      <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

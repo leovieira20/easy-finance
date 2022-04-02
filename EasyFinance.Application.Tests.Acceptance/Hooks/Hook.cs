@@ -1,4 +1,4 @@
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Domain;
 using NSubstitute;
 
 namespace EasyFinance.Application.Tests.Acceptance.Hooks

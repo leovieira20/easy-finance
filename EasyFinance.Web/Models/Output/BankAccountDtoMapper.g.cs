@@ -1,4 +1,4 @@
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
+using BankAccountModule.Application.RegisterBankAccount;
 using EasyFinance.Web.Models.Output;
 
 namespace EasyFinance.Web.Models.Output

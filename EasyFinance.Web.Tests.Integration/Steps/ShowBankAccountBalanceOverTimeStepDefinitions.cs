@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyFinance.Web.Models.Output;
+using BankAccountModule.Application.GetBankAccountOverview;
+using BankAccountModule.Application.RegisterBankAccount;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -16,8 +17,8 @@ public class ShowBankAccountBalanceOverTimeStepDefinitions
     private readonly BankAccountClient _bankAccountClient;
     private readonly BankAccountOverviewClient _bankAccountOverviewClient;
     private readonly BankAccountTransactionClient _bankAccountTransactionClient;
-    private BankAccountDtoPublicModel? _bankAccount;
-    private List<MonthlyBreakdownDtoPublicModel>? _bankAccountOverview;
+    private BankAccountDto? _bankAccount;
+    private List<MonthlyBreakdownDto>? _bankAccountOverview;
 
     public ShowBankAccountBalanceOverTimeStepDefinitions(BankAccountClient bankAccountClient, BankAccountOverviewClient bankAccountOverviewClient, BankAccountTransactionClient bankAccountTransactionClient)
     {

@@ -45,11 +45,10 @@
     </Target>
 
     <ItemGroup>
-        <ProjectReference Include="..\EasyFinance.Application\EasyFinance.Application.csproj" />
+        <ProjectReference Include="..\BankAccountModule.Application\BankAccountModule.Application.csproj" />
+        <ProjectReference Include="..\BankAccountModule.Db.SqlServer\BankAccountModule.Db.SqlServer.csproj" />
+        <ProjectReference Include="..\CreditCardModule.Application\CreditCardModule.Application.csproj" />
+        <ProjectReference Include="..\CreditCardModule.Db.SqlServer\CreditCardModule.Db.SqlServer.csproj" />
         <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Models\Output" />
     </ItemGroup>
 </Project>

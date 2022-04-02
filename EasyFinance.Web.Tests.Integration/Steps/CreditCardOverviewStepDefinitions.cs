@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EasyFinance.Application.CreditCardCommands.Overview;
-using EasyFinance.Domain.Accounts;
+using CreditCardModule.Application.Overview;
+using CreditCardModule.Domain;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Application.CreditCardCommands.Overview;
-using EasyFinance.Domain.Accounts;
+using CreditCardModule.Application.Overview;
+using CreditCardModule.Domain;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;

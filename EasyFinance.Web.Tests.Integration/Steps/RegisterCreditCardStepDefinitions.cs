@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using EasyFinance.Web.Models.Output;
+using CreditCardModule.Application.Register;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -11,7 +11,7 @@ namespace EasyFinance.Web.Tests.Integration.Steps;
 public class RegisterCreditCardStepDefinitions
 {
     private readonly CreditCardClient _client;
-    private CreditCardDtoPublicModel _bankAccount = null!;
+    private CreditCardDto _bankAccount = null!;
     private string _cardName = null!;
 
     public RegisterCreditCardStepDefinitions(CreditCardClient client)

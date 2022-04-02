@@ -1,5 +1,4 @@
-using EasyFinance.Domain;
-using EasyFinance.Domain.Accounts;
+using CreditCardModule.Domain;
 using EasyFinance.Web.Models.Output;
 
 namespace EasyFinance.Web.Models.Output

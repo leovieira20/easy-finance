@@ -1,8 +1,8 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using BankAccountModule.Application.RegisterBankAccount;
 using EasyFinance.Web.Models.Input;
-using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
@@ -17,7 +17,7 @@ public class BankAccountClient
         _httpClient = webApplicationFactory.CreateClient();
     }
 
-    public async Task<(BankAccountDtoPublicModel? bankAccount, HttpResponseMessage response)> RegisterBankAccountAsync(
+    public async Task<(BankAccountDto? bankAccount, HttpResponseMessage response)> RegisterBankAccountAsync(
         string accountName)
     {
         var bodyParams = new RegisterBankAccountRequest
@@ -30,7 +30,7 @@ public class BankAccountClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<BankAccountDtoPublicModel>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<BankAccountDto>(), response)
         };
     }
 }

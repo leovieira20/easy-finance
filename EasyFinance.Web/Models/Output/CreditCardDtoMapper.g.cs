@@ -1,4 +1,4 @@
-using EasyFinance.Application.CreditCardCommands.Register;
+using CreditCardModule.Application.Register;
 using EasyFinance.Web.Models.Output;
 
 namespace EasyFinance.Web.Models.Output

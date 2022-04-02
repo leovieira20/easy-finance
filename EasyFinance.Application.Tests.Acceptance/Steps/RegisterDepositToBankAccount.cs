@@ -1,5 +1,5 @@
-using EasyFinance.Application.BankAccountTransactionCommands.RegisterDepositToBankAccount;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Application.RegisterDepositToBankAccount;
+using BankAccountModule.Domain;
 using FluentAssertions;
 
 namespace EasyFinance.Application.Tests.Acceptance.Steps;

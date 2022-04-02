@@ -1,5 +1,5 @@
+using BankAccountModule.Domain;
 using EasyFinance.Application.Tests.Acceptance.Helpers.Factories;
-using EasyFinance.Domain.Accounts;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
 using TechTalk.SpecFlow.Assist;

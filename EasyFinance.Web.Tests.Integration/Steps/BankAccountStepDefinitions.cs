@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Domain;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Consts;
 using TechTalk.SpecFlow;

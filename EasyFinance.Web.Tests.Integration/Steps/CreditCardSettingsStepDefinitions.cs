@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
-using EasyFinance.Domain.Accounts;
-using EasyFinance.Web.Models.Output;
+using CreditCardModule.Domain;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -13,7 +12,7 @@ public class CreditCardSettingsStepDefinitions
     private readonly ScenarioContext _scenarioContext;
     private readonly CreditCardSettingsClient _client;
     private readonly ICreditCardRepository _creditCardRepository;
-    private ClientResponse<CreditCardSettingsPublicModel> _response = null!;
+    private ClientResponse<CreditCardSettings> _response = null!;
 
     public CreditCardSettingsStepDefinitions(ScenarioContext scenarioContext, 
         CreditCardSettingsClient client, 

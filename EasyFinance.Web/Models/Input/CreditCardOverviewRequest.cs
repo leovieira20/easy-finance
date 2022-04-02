@@ -1,4 +1,6 @@
-﻿namespace EasyFinance.Web.Models.Input;
+﻿using System;
+
+namespace EasyFinance.Web.Models.Input;
 
 public class CreditCardOverviewRequest
 {

@@ -1,5 +1,5 @@
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Domain;
 using FluentAssertions;
 using NSubstitute;
 

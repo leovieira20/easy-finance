@@ -1,5 +1,5 @@
-using EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Application.ShowBankAccountTransactions;
+using BankAccountModule.Domain;
 using FluentAssertions;
 using TechTalk.SpecFlow.Assist;
 

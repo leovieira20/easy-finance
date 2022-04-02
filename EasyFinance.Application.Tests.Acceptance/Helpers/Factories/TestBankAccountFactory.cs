@@ -1,4 +1,4 @@
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Domain;
 
 namespace EasyFinance.Application.Tests.Acceptance.Helpers.Factories;
 

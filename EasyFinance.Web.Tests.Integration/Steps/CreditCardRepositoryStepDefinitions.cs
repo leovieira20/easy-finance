@@ -1,5 +1,5 @@
 using System;
-using EasyFinance.Domain.Accounts;
+using CreditCardModule.Domain;
 using TechTalk.SpecFlow;
 
 namespace EasyFinance.Web.Tests.Integration.Steps;

@@ -1,5 +1,5 @@
 using System;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Domain;
 using FluentAssertions;
 using Xunit;
 

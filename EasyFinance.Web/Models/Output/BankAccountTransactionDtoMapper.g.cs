@@ -1,4 +1,4 @@
-using EasyFinance.Application.BankAccountTransactionCommands.ShowBankAccountTransactions;
+using BankAccountModule.Application.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Output;
 
 namespace EasyFinance.Web.Models.Output

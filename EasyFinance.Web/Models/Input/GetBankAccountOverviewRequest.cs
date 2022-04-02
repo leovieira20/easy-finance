@@ -1,3 +1,5 @@
+using System;
+
 namespace EasyFinance.Web.Models.Input;
 
 public class GetBankAccountOverviewRequest

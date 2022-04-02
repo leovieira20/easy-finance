@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using EasyFinance.Web.Models.Output;
+using BankAccountModule.Application.GetBankAccountOverview;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
@@ -18,7 +18,7 @@ public class BankAccountOverviewClient
         _httpClient = webApplicationFactory.CreateClient();
     }
 
-    public async Task<(List<MonthlyBreakdownDtoPublicModel>? bankAccountOverview, HttpResponseMessage response)> GetOverviewAsync(Guid bankAccountId, int months)
+    public async Task<(List<MonthlyBreakdownDto>? bankAccountOverview, HttpResponseMessage response)> GetOverviewAsync(Guid bankAccountId, int months)
     {
         var startDate = DateTime.UtcNow;
         var endDate = startDate.AddMonths(months);
@@ -29,7 +29,7 @@ public class BankAccountOverviewClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<List<MonthlyBreakdownDtoPublicModel>>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<List<MonthlyBreakdownDto>>(), response)
         };
     }
 }

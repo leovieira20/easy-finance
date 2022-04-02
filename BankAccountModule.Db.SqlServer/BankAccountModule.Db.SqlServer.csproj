@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
+      <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
+    </ItemGroup>
+
+</Project>

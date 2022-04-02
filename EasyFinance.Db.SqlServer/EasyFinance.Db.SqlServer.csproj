@@ -13,7 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
+      <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
+      <ProjectReference Include="..\CreditCardModule.Domain\CreditCardModule.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

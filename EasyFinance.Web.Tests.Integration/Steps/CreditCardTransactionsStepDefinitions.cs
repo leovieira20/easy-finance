@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
-using EasyFinance.Domain;
-using EasyFinance.Domain.Accounts;
+using CreditCardModule.Domain;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

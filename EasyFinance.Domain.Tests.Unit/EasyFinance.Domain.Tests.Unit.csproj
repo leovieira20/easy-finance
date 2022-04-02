@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyFinance.Domain\EasyFinance.Domain.csproj" />
+      <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
     </ItemGroup>
 
 </Project>

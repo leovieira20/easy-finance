@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using BankAccountModule.Application.RegisterDepositToBankAccount;
+using BankAccountModule.Application.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Input;
-using EasyFinance.Web.Models.Output;
 using EasyFinance.Web.Tests.Integration.Infrastructure.Web;
 
 namespace EasyFinance.Web.Tests.Integration.Infrastructure.Clients;
@@ -19,7 +20,7 @@ public class BankAccountTransactionClient
         _httpClient = webApplicationFactory.CreateClient();
     }
 
-    public async Task<(IList<BankAccountTransactionDtoPublicModel>? transactions, HttpResponseMessage response)>
+    public async Task<(IList<BankAccountTransactionDto>? transactions, HttpResponseMessage response)>
         ShowBankAccountTransactionsAsync(Guid bankAccountId)
     {
         var response = await _httpClient.GetAsync($"{BaseUrl}?BankAccountId={bankAccountId}");
@@ -27,14 +28,14 @@ public class BankAccountTransactionClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<IList<BankAccountTransactionDtoPublicModel>>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<IList<BankAccountTransactionDto>>(), response)
         };
     }
 
-    public async Task<(BankAccountSummaryDtoPublicModel? summary, HttpResponseMessage response)> RegisterDepositToAccountAsync(Guid bankAccountId, decimal amount, int month)
+    public async Task<(BankAccountSummaryDto? summary, HttpResponseMessage response)> RegisterDepositToAccountAsync(Guid bankAccountId, decimal amount, int month)
     {
         var response = await _httpClient.PostAsJsonAsync($"{BaseUrl}/RegisterDeposit",
-            new RegisterDepositToBankAccountRequest
+            new RegisterBankAccountCreditRequest
             {
                 BankAccountId = bankAccountId,
                 Amount = amount,
@@ -44,14 +45,14 @@ public class BankAccountTransactionClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<BankAccountSummaryDtoPublicModel>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<BankAccountSummaryDto>(), response)
         };
     }
     
-    public async Task<(BankAccountSummaryDtoPublicModel? summary, HttpResponseMessage response)> RegisterPaymentToAccountAsync(Guid bankAccountId, decimal amount, DateTime transactionDate)
+    public async Task<(BankAccountSummaryDto? summary, HttpResponseMessage response)> RegisterPaymentToAccountAsync(Guid bankAccountId, decimal amount, DateTime transactionDate)
     {
         var response = await _httpClient.PostAsJsonAsync($"{BaseUrl}/RegisterPayment",
-            new RegisterPaymentToBankAccountRequest
+            new RegisterBankAccountDebitRequest
             {
                 BankAccountId = bankAccountId,
                 Amount = amount,
@@ -61,7 +62,7 @@ public class BankAccountTransactionClient
         return response.IsSuccessStatusCode switch
         {
             false => (null, response),
-            _ => (await response.Content.ReadFromJsonAsync<BankAccountSummaryDtoPublicModel>(), response)
+            _ => (await response.Content.ReadFromJsonAsync<BankAccountSummaryDto>(), response)
         };
     }
 }

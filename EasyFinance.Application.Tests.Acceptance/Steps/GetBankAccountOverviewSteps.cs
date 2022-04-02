@@ -1,5 +1,5 @@
-using EasyFinance.Application.AccountOverviewCommands.GetBankAccountOverview;
-using EasyFinance.Domain.Accounts;
+using BankAccountModule.Application.GetBankAccountOverview;
+using BankAccountModule.Domain;
 using FluentAssertions;
 using NSubstitute;
 using TechTalk.SpecFlow.Assist;

@@ -1,4 +1,7 @@
-using EasyFinance.Application.BankAccountCommands.RegisterBankAccount;
+using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Db.SqlServer;
+using CreditCardModule.Application.Register;
+using CreditCardModule.Db.SqlServer;
 using EasyFinance.Db.SqlServer;
 using EasyFinance.Db.SqlServer.EF;
 using EasyFinance.Web.Infrastructure.Db;
@@ -33,9 +36,12 @@ builder.Services.AddDbContext<EasyFinanceDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddMediatR(typeof(RegisterBankAccountCommand));
 
-SqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
+builder.Services.AddMediatR(typeof(RegisterBankAccountCommand));
+builder.Services.AddMediatR(typeof(RegisterCreditCardCommand));
+
+BankAccountsSqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
+CreditCardSqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
 
 var app = builder.Build();
 
