@@ -20,7 +20,7 @@ class GetBankAccountOverviewCommandHandler : IRequestHandler<GetBankAccountOverv
         var breakdowns = new List<MonthlyBreakdownDto>();
         var currentBalance = 0m;
 
-        foreach (var yearAndMonth in Enumerable.GroupBy(transactions, x => new { x.Date.Year, x.Date.Month}))
+        foreach (var yearAndMonth in transactions.GroupBy(x => new { x.Date.Year, x.Date.Month}))
         {
             var sumOfCredits = yearAndMonth
                 .Where(x => x.Type == BankAccountTransactionType.Credit)

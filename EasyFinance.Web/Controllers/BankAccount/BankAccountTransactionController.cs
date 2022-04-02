@@ -1,6 +1,6 @@
+using BankAccountModule.Application.GetBankAccountTransactions;
 using BankAccountModule.Application.RegisterDepositToBankAccount;
 using BankAccountModule.Application.RegisterPaymentToBankAccount;
-using BankAccountModule.Application.ShowBankAccountTransactions;
 using EasyFinance.Web.Models.Input;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +18,12 @@ public class BankAccountTransactionController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get([FromQuery] ShowBankAccountTransactionsRequest request)
+    public async Task<IActionResult> Get([FromQuery] GetBankAccountTransactionsRequest request)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var transactions = await _mediator.Send(new ShowBankAccountTransactionHistoryCommand(request.BankAccountId));
+        var transactions = await _mediator.Send(new GetBankAccountTransactionsCommand(request.BankAccountId));
 
         return Ok(transactions);
     }

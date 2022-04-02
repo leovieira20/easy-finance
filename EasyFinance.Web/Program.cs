@@ -51,10 +51,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-if (!app.Environment.IsEnvironment("IntegrationTests"))
-{
-    MigrationHelper.Migrate(app.Services);
-}
+// if (!app.Environment.IsEnvironment("IntegrationTests"))
+// {
+//     MigrationHelper.Migrate(app.Services);
+// }
 
 app.MapControllers();
 app.Run();

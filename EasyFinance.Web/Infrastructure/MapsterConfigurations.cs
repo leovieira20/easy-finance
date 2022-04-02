@@ -1,6 +1,6 @@
+using BankAccountModule.Application.GetBankAccountTransactions;
 using BankAccountModule.Application.RegisterBankAccount;
 using BankAccountModule.Application.RegisterDepositToBankAccount;
-using BankAccountModule.Application.ShowBankAccountTransactions;
 using CreditCardModule.Application.Register;
 using CreditCardModule.Domain;
 using Mapster;

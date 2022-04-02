@@ -1,4 +1,4 @@
-using BankAccountModule.Application.ShowBankAccountTransactions;
+using BankAccountModule.Application.GetBankAccountTransactions;
 using BankAccountModule.Domain;
 using FluentAssertions;
 using TechTalk.SpecFlow.Assist;
@@ -9,18 +9,18 @@ namespace EasyFinance.Application.Tests.Acceptance.Steps;
 public class ShowBankAccountTransactionHistoryStepDefinitions
 {
     private ICollection<BankAccountTransactionDto> _transactions = null!;
-    private readonly ShowBankAccountTransactionHistoryCommandHandler _sut;
+    private readonly GetBankAccountTransactionsCommandHandler _sut;
 
     public ShowBankAccountTransactionHistoryStepDefinitions(ScenarioContext context)
     {
         var repository = context.Get<IBankAccountRepository>(nameof(IBankAccountRepository));
-        _sut = new ShowBankAccountTransactionHistoryCommandHandler(repository);
+        _sut = new GetBankAccountTransactionsCommandHandler(repository);
     }
 
     [When(@"bank account transactions are listed")]
     public async Task WhenBankAccountTransactionsAreListed()
     {
-        var command = new ShowBankAccountTransactionHistoryCommand(Guid.NewGuid());
+        var command = new GetBankAccountTransactionsCommand(Guid.NewGuid());
 
         _transactions = await _sut.Handle(command, CancellationToken.None);
     }

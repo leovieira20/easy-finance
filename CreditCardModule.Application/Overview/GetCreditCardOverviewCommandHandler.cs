@@ -22,7 +22,7 @@ class GetCreditCardOverviewCommandHandler : IRequestHandler<GetCreditCardOvervie
         var defaultPayment = creditCard!.Settings.DefaultPaymentAmount;
         
         var transactions = await _transactionRepository.GetAsync(request.CreditCardId, request.StartDate, request.EndDate);
-        var groupedTransactions = Enumerable.GroupBy(transactions, x => new { x.Date.Year, x.Date.Month })
+        var groupedTransactions = transactions.GroupBy(x => new { x.Date.Year, x.Date.Month })
             .ToList();
 
         var overviews = new List<CreditCardMonthlyBreakdownDto>();

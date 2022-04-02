@@ -3,7 +3,7 @@ using EasyFinance.Web.Infrastructure.Validation;
 
 namespace EasyFinance.Web.Models.Input;
 
-public class ShowBankAccountTransactionsRequest
+public class GetBankAccountTransactionsRequest
 {
     [Required]
     [ValidGuid]
