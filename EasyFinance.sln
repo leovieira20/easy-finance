@@ -24,6 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Db.SqlServer", "BankAccountModule.Db.SqlServer\BankAccountModule.Db.SqlServer.csproj", "{174E80A9-3278-4E82-B821-E960C2681608}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{6097750C-A7D6-486D-A176-3AB0F9820549}"
+	ProjectSection(SolutionItems) = preProject
+		tye.yaml = tye.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

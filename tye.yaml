@@ -1,22 +1,79 @@
 name: easyfinance
 
-extensions:
-- name: seq
-  logPath: ./.logs
-
-- name: dapr
-  components-path: "./dapr/components/"
+#extensions:
+#- name: seq
+#  logPath: ./.logs
+#
+#- name: dapr
+#  components-path: "./dapr/components/"
 
 services:
-- name: web
-  project: Web/Web.csproj
-  bindings:
-    - port: 50000
-- name: redis
-  image: redis
-  bindings:
-    - port: 6379
-- name: zipkin
-  image: openzipkin/zipkin
-  bindings:
-    - port: 9411
+  - name: graphana
+    image: grafana/grafana-oss
+    bindings:
+      - port: 60000
+        containerPort: 3000
+  - name: graphite
+    image: graphiteapp/graphite-statsd
+    bindings:
+      - name: graphite ui
+        port: 60001
+        containerPort: 80
+      - name: carbon receiver - plaintext
+        port: 60002
+        containerPort: 2003        
+      - name: carbon receiver - pickle
+        port: 60003
+        containerPort: 2004
+      - name: carbon aggregator - plaintext
+        port: 60004
+        containerPort: 2023
+      - name: carbon aggregator - pickle
+        port: 60005
+        containerPort: 2024
+      - name: statsd
+        port: 60006
+        containerPort: 8125
+        protocol: udp
+      - name: statsd admin
+        port: 60007
+        containerPort: 8126
+  - name: influxdb
+    image: influxdb/influxdb
+    bindings:
+      - port: 60008
+        containerPort: 8086
+  - name: kibana
+    image: kibana:8.1.2
+    bindings:
+      - port: 60009
+        containerPort: 5601
+  - name: logstash
+    image: logstash:8.1.2
+    bindings:
+      - port: 60010
+        containerPort: 5000
+  - name: elasticsearch
+    image: elasticsearch:8.1.2
+    env:
+      - name: "discovery.type"
+        value: "single-node"
+    bindings:
+      - port: 60011
+        containerPort: 9200
+        name: elasticsearch01
+      - port: 60012
+        containerPort: 9300
+        name: elasticsearch02
+#- name: web
+#  project: Web/Web.csproj
+#  bindings:
+#    - port: 50000
+#- name: redis
+#  image: redis
+#  bindings:
+#    - port: 6379
+#- name: zipkin
+#  image: openzipkin/zipkin
+#  bindings:
+#    - port: 9411
