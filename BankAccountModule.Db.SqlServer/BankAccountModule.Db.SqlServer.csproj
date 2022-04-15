@@ -12,7 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
-      <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
+      <ProjectReference Include="..\Db.SqlServer\Db.SqlServer.csproj" />
     </ItemGroup>
 
 </Project>

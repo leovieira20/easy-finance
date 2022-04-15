@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
-        <InternalsVisibleTo Include="EasyFinance.Application.Tests.Acceptance" />
+        <InternalsVisibleTo Include="BankAccountModule.Api.Tests.Integration" />
+        <InternalsVisibleTo Include="BankAccountModule.Application.Tests.Acceptance" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,7 +17,6 @@
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="10.0.1" />
-      <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
     </ItemGroup>
 
 </Project>

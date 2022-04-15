@@ -1,5 +1,5 @@
 using BankAccountModule.Domain;
-using EasyFinance.Db.SqlServer;
+using Db.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankAccountModule.Db.SqlServer;

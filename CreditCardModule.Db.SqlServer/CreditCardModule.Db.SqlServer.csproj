@@ -7,16 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
+        <InternalsVisibleTo Include="CreditCardModule.Api.Tests.Integration" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\CreditCardModule.Domain\CreditCardModule.Domain.csproj" />
-      <ProjectReference Include="..\EasyFinance.Db.SqlServer\EasyFinance.Db.SqlServer.csproj" />
+      <ProjectReference Include="..\Db.SqlServer\Db.SqlServer.csproj" />
     </ItemGroup>
 
 </Project>

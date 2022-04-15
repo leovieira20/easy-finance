@@ -1,5 +1,5 @@
 using CreditCardModule.Domain;
-using EasyFinance.Db.SqlServer;
+using Db.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
 namespace CreditCardModule.Db.SqlServer;
