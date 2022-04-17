@@ -1,0 +1,39 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      #   Build
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+      
+      #   Tests
+      #   Bank Account
+      - name: Bank Account Domain Test
+        run: dotnet test BankAccountModule.Domain.Tests.Unit/BankAccountModule.Domain.Tests.Unit.csproj --no-build --verbosity normal
+      - name: Bank Account Application Test
+        run: dotnet test BankAccountModule.Application.Tests.Acceptance/BankAccountModule.Application.Tests.Acceptance.csproj --no-build --verbosity normal
+#      - name: Bank Account Api Test
+#        run: dotnet test BankAccountModule.Api.Tests/BankAccountModule.Api.Tests.csproj --no-build --verbosity normal
+      #   Credit Card
+      - name: Credit Card Domain Test
+        run: dotnet test CreditCardModule.Domain.Tests.Unit/CreditCardModule.Domain.Tests.Unit.csproj --no-build --verbosity normal
+#      - name: Credit Card Api Test
+#        run: dotnet test CreditCardModule.Api.Tests/CreditCardModule.Api.Tests.csproj --no-build --verbosity normal

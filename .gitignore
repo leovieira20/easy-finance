@@ -6,3 +6,5 @@ obj/
 EasyFinance.sln.DotSettings.user
 
 *.feature.cs
+
+.idea/.idea.EasyFinance/.idea/
