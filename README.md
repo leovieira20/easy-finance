@@ -22,15 +22,27 @@ within EasyFinance.Web project
 `dotnet ef migrations add Initial -p ../EasyFinance.Db.SqlServer -o ./EF/Migrations`
 
 # Backlog
+## CI/CD
+- Retain build artifacts
+- Parallelize tests
 
-## features
+## Bank account
 
+## Credit Card
 - Show credit card overview
 - Implement outstanding credit card balance
 - Register credit card transaction
 - Register credit card payment
 - Add "real balance" when credit card debt exists
-- Implement authentication
+
+## Authentication
+
+## User
+- Implement authentication with email and password
+- Implement authentication with gmail
+
+## Gateway
+- Investigate gateway options
 
 ## tech debt
 
