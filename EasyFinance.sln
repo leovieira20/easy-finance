@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Api", "Cre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Api", "BankAccountModule.Api\BankAccountModule.Api.csproj", "{E1A4B4C0-18EB-4468-85FF-5CC2AE4E0751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCard.Infrastructure.Db.Sql", "CreditCard.Infrastructure.Db.Sql\CreditCard.Infrastructure.Db.Sql.csproj", "{80A178AA-72BD-4279-ADA6-830548B44243}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Infrastructure.Db.Sql", "CreditCardModule.Infrastructure.Db.Sql\CreditCardModule.Infrastructure.Db.Sql.csproj", "{80A178AA-72BD-4279-ADA6-830548B44243}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount.Infrastructure.Db.Sql", "BankAccount.Infrastructure.Db.Sql\BankAccount.Infrastructure.Db.Sql.csproj", "{E36E4E66-D837-4C78-BF07-CB7A907F3868}"
 EndProject
