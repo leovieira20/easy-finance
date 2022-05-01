@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace CreditCardModule.Api.Controllers;
 
 [Route("[controller]")]
-public class CreditCardOverviewController : ControllerBase
+public class OverviewController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public CreditCardOverviewController(IMediator mediator)
+    public OverviewController(IMediator mediator)
     {
         _mediator = mediator;
     }
