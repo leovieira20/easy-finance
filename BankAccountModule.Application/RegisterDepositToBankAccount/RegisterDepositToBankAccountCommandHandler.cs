@@ -15,9 +15,14 @@ class RegisterDepositToBankAccountCommandHandler : IRequestHandler<RegisterDepos
     public async Task<BankAccountSummaryDto> Handle(RegisterDepositToBankAccountCommand request, CancellationToken cancellationToken)
     {
         var bankAccount = await _repository.GetAsync(new BankAccountId(request.BankAccountId));
-        if (bankAccount == null)
-            return new BankAccountSummaryDto();
+        
+        return await bankAccount
+            .Some(x => RegisterCreditAsync(x, request))
+            .None(Task.FromResult(new BankAccountSummaryDto()));
+    }
 
+    private async Task<BankAccountSummaryDto> RegisterCreditAsync(BankAccount bankAccount, RegisterDepositToBankAccountCommand request)
+    {
         bankAccount.RegisterCredit(request.date, request.Amount, string.Empty);
 
         await _repository.Update(bankAccount);

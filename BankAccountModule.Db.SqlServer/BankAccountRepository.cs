@@ -1,5 +1,6 @@
 using BankAccountModule.Domain;
 using Db.SqlServer;
+using LanguageExt;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankAccountModule.Db.SqlServer;
@@ -19,11 +20,13 @@ class BankAccountRepository : IBankAccountRepository
         return _context.SaveChangesAsync();
     }
 
-    public Task<BankAccount?> GetAsync(BankAccountId bankAccountId)
+    public async Task<Option<BankAccount>> GetAsync(BankAccountId bankAccountId)
     {
-        return _context
+        var result = await _context
             .BankAccounts
             .SingleOrDefaultAsync(x => x.Id == bankAccountId);
+
+        return result == null ? Option<BankAccount>.None : Option<BankAccount>.Some(result);
     }
 
     public Task<BankAccount?> GetWithTransactionsAsync(BankAccountId bankAccountId)

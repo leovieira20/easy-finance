@@ -1,6 +1,8 @@
 using BankAccountModule.Application.Tests.Acceptance.Helpers.Factories;
 using BankAccountModule.Domain;
+using LanguageExt;
 using NSubstitute;
+using NSubstitute.Core;
 using NSubstitute.ReturnsExtensions;
 using TechTalk.SpecFlow.Assist;
 
@@ -20,23 +22,23 @@ public class BankAccountRepositoryStepDefinitions
     public void GivenInexistentBankAccount()
     {
         _repository.GetAsync(default)
-            .ReturnsNullForAnyArgs();
+            .Returns(Option<BankAccount>.None);
     }
-    
+
     [Given(@"existing bank account with no balance")]
     public void GivenExistingBankAccountWithNoBalance()
     {
         _repository.GetAsync(default)
             .ReturnsForAnyArgs(TestBankAccountFactory.Make());
     }
-    
+
     [Given(@"existing bank account with one deposit")]
     public void GivenExistingBankAccountWithOneDeposit(Table transactions)
     {
         var transaction = transactions.CreateInstance<BankAccountTransaction>();
-        
+
         var bankAccount = TestBankAccountFactory.Make();
-        
+
         bankAccount.RegisterCredit(DateTime.UtcNow, transaction.Amount, string.Empty);
 
         _repository.GetWithTransactionsAsync(default)
