@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: easy-finance
+  annotations:
+    github.com/project-slug: leovieira20/easy-finance
+spec:
+  type: other
+  lifecycle: unknown
+  owner: leovieira20@gmail.com
