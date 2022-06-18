@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using MediatR;
 
 namespace BankAccountModule.Application.GetBankAccountTransactions;

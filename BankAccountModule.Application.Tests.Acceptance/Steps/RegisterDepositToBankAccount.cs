@@ -1,5 +1,6 @@
 using BankAccountModule.Application.RegisterDepositToBankAccount;
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using FluentAssertions;
 
 namespace BankAccountModule.Application.Tests.Acceptance.Steps;

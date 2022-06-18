@@ -1,5 +1,6 @@
 using BankAccountModule.Application.RegisterBankAccount;
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using FluentAssertions;
 using NSubstitute;
 

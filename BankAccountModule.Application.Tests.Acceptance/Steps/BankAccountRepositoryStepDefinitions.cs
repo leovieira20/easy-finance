@@ -1,5 +1,6 @@
 using BankAccountModule.Application.Tests.Acceptance.Helpers.Factories;
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using LanguageExt;
 using NSubstitute;
 using NSubstitute.Core;
@@ -39,7 +40,7 @@ public class BankAccountRepositoryStepDefinitions
 
         var bankAccount = TestBankAccountFactory.Make();
 
-        bankAccount.RegisterCredit(DateTime.UtcNow, transaction.Amount, string.Empty);
+        bankAccount = bankAccount.RegisterDeposit(DateTime.UtcNow, transaction.Amount, string.Empty);
 
         _repository.GetWithTransactionsAsync(default)
             .ReturnsForAnyArgs(bankAccount);

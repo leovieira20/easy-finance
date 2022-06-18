@@ -1,6 +1,6 @@
 using LanguageExt;
 
-namespace BankAccountModule.Domain;
+namespace BankAccountModule.Domain.Repositories;
 
 public interface IBankAccountRepository
 {

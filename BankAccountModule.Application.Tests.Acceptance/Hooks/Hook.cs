@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using NSubstitute;
 
 namespace BankAccountModule.Application.Tests.Acceptance.Hooks

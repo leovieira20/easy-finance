@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BankAccountModule.Db.SqlServer;

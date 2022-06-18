@@ -1,5 +1,6 @@
 using BankAccountModule.Application.RegisterDepositToBankAccount;
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using LanguageExt;
 using MediatR;
 
@@ -25,7 +26,7 @@ class RegisterPaymentToBankAccountCommandHandler : IRequestHandler<RegisterPayme
 
     private async Task<BankAccountSummaryDto> RegisterDebitAsync(BankAccount bankAccount, RegisterPaymentToBankAccountCommand request)
     {
-        bankAccount.RegisterDebit(request.date, request.Amount, string.Empty);
+        bankAccount.RegisterExpense(request.date, request.Amount, string.Empty);
 
         await _repository.Update(bankAccount);
 

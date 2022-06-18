@@ -1,5 +1,6 @@
 using BankAccountModule.Application.GetBankAccountTransactions;
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using FluentAssertions;
 using TechTalk.SpecFlow.Assist;
 

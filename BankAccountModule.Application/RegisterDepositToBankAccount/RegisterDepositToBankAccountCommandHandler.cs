@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using MediatR;
 
 namespace BankAccountModule.Application.RegisterDepositToBankAccount;
@@ -23,7 +24,7 @@ class RegisterDepositToBankAccountCommandHandler : IRequestHandler<RegisterDepos
 
     private async Task<BankAccountSummaryDto> RegisterCreditAsync(BankAccount bankAccount, RegisterDepositToBankAccountCommand request)
     {
-        bankAccount.RegisterCredit(request.date, request.Amount, string.Empty);
+        bankAccount = bankAccount.RegisterDeposit(request.date, request.Amount, string.Empty);
 
         await _repository.Update(bankAccount);
 

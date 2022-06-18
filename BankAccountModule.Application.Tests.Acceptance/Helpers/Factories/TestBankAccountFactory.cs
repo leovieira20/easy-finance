@@ -6,6 +6,6 @@ public class TestBankAccountFactory
 {
     public static BankAccount Make()
     {
-        return BankAccount.Create(Guid.NewGuid().ToString());
+        return BankAccount.CreateWithName(Guid.NewGuid().ToString());
     }
 }

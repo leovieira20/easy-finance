@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using Db.SqlServer;
 using LanguageExt;
 using Microsoft.EntityFrameworkCore;

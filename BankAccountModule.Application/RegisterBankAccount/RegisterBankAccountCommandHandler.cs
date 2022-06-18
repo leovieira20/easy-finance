@@ -1,4 +1,5 @@
 using BankAccountModule.Domain;
+using BankAccountModule.Domain.Repositories;
 using MediatR;
 
 namespace BankAccountModule.Application.RegisterBankAccount;
@@ -14,7 +15,7 @@ class RegisterBankAccountCommandHandler : IRequestHandler<RegisterBankAccountCom
 
     public async Task<BankAccountDto> Handle(RegisterBankAccountCommand request, CancellationToken cancellationToken)
     {
-        var bankAccount = BankAccount.Create(request.BankAccountName);
+        var bankAccount = BankAccount.CreateWithName(request.BankAccountName);
 
         await _repository.CreateAsync(bankAccount);
         
