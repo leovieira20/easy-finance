@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: EasyFinance
+  description: EasyFinance.com
+  annotations:
+    backstage.io/techdocs-ref: README.md
+spec:
+  type: website
+  lifecycle: production
+  owner: leovieira20@gmail.com

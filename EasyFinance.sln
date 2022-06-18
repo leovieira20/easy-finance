@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".SolutionItems", ".Solution
 	ProjectSection(SolutionItems) = preProject
 		tye.yaml = tye.yaml
 		README.md = README.md
+		mkdocs.yaml = mkdocs.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{AAF304C4-8370-4887-8DC4-8A4CEDE8F1CB}"
