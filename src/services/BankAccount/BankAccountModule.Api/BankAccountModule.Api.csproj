@@ -34,4 +34,8 @@
       <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="README.md" />
+    </ItemGroup>
+
 </Project>

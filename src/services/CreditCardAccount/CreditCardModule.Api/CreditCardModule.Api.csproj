@@ -29,4 +29,8 @@
       <ProjectReference Include="..\CreditCardModule.Application\CreditCardModule.Application.csproj" />
       <ProjectReference Include="..\CreditCardModule.Db.SqlServer\CreditCardModule.Db.SqlServer.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="README.md" />
+    </ItemGroup>
 </Project>
