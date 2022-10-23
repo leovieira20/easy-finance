@@ -1,14 +1,14 @@
+using CreditCardModule.Db.SqlServer.EF;
 using CreditCardModule.Domain;
-using Db.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
 namespace CreditCardModule.Db.SqlServer;
 
 class CreditCardRepository : ICreditCardRepository
 {
-    private readonly EasyFinanceDbContext _context;
+    private readonly CreditCardsDbContext _context;
 
-    public CreditCardRepository(EasyFinanceDbContext context)
+    public CreditCardRepository(CreditCardsDbContext context)
     {
         _context = context;
     }

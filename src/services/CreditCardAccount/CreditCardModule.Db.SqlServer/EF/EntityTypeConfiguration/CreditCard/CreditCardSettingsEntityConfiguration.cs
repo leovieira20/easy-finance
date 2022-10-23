@@ -2,7 +2,7 @@ using CreditCardModule.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Db.SqlServer.EF.EntityTypeConfiguration.CreditCard;
+namespace CreditCardModule.Db.SqlServer.EF.EntityTypeConfiguration.CreditCard;
 
 public class CreditCardSettingsEntityConfiguration : IEntityTypeConfiguration<CreditCardSettings>
 {

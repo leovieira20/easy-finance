@@ -8,12 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Db.SqlServer\Db.SqlServer.csproj" />
+      <ProjectReference Include="..\services\BankAccount\BankAccountModule.Db.SqlServer\BankAccountModule.Db.SqlServer.csproj" />
       <ProjectReference Include="..\services\BankAccount\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
+      <ProjectReference Include="..\services\CreditCardAccount\CreditCardModule.Db.SqlServer\CreditCardModule.Db.SqlServer.csproj" />
       <ProjectReference Include="..\services\CreditCardAccount\CreditCardModule.Domain\CreditCardModule.Domain.csproj" />
     </ItemGroup>
 </Project>

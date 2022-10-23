@@ -2,7 +2,7 @@ using BankAccountModule.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Db.SqlServer.EF.EntityTypeConfiguration.BankAccount;
+namespace BankAccountModule.Db.SqlServer.EF.EntityTypeConfiguration.BankAccount;
 
 public class BankAccountEntityConfiguration : IEntityTypeConfiguration<BankAccountModule.Domain.BankAccount>
 {

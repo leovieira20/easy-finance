@@ -1,14 +1,14 @@
+using BankAccountModule.Db.SqlServer.EF;
 using BankAccountModule.Domain;
-using Db.SqlServer;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankAccountModule.Db.SqlServer;
 
 class BankAccountTransactionRepository : IBankAccountTransactionRepository
 {
-    private readonly EasyFinanceDbContext _context;
+    private readonly BankAccountsDbContext _context;
 
-    public BankAccountTransactionRepository(EasyFinanceDbContext context)
+    public BankAccountTransactionRepository(BankAccountsDbContext context)
     {
         _context = context;
     }

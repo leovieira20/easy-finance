@@ -1,6 +1,5 @@
 using BankAccountModule.Application.RegisterDepositToBankAccount;
 using BankAccountModule.Domain;
-using LanguageExt;
 using MediatR;
 
 namespace BankAccountModule.Application.RegisterPaymentToBankAccount;

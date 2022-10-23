@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Db.SqlServer.EF
+namespace Db.SqlServer.Common
 {
     public class StronglyTypedIdValueConverterSelector : ValueConverterSelector
     {

@@ -1,5 +1,4 @@
 using System;
-using BankAccountModule.Domain;
 using FluentAssertions;
 using Xunit;
 

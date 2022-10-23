@@ -1,26 +1,28 @@
-﻿using BankAccountModule.Domain;
+﻿using BankAccountModule.Db.SqlServer.EF;
+using BankAccountModule.Domain;
+using CreditCardModule.Db.SqlServer.EF;
 using CreditCardModule.Domain;
-using Db.SqlServer;
 
-var dbContext = new EasyFinanceDbContext();
+var bankAccountsDbContext = new BankAccountsDbContext();
+var creditCardsDbContext = new CreditCardsDbContext();
 
 var bankAccount = CreateBankAccount();
-dbContext.BankAccounts.Add(bankAccount);
-dbContext.SaveChanges();
+bankAccountsDbContext.BankAccounts.Add(bankAccount);
+bankAccountsDbContext.SaveChanges();
 
 RegisterBankAccountCredits(bankAccount);
-dbContext.SaveChanges();
+bankAccountsDbContext.SaveChanges();
 RegisterBankAccountDebits(bankAccount);
-dbContext.SaveChanges();
+bankAccountsDbContext.SaveChanges();
 
-var creditCard = CreateCreditCard(dbContext);
-dbContext.CreditCards.Add(creditCard);
-dbContext.SaveChanges();
+var creditCard = CreateCreditCard(creditCardsDbContext);
+creditCardsDbContext.CreditCards.Add(creditCard);
+creditCardsDbContext.SaveChanges();
 
-RegisterCreditCardPayments(dbContext, creditCard);
-dbContext.SaveChanges();
-RegisterCreditCardExpenses(dbContext, creditCard);
-dbContext.SaveChanges();
+RegisterCreditCardPayments(creditCardsDbContext, creditCard);
+creditCardsDbContext.SaveChanges();
+RegisterCreditCardExpenses(creditCardsDbContext, creditCard);
+creditCardsDbContext.SaveChanges();
 
 static BankAccount CreateBankAccount()
 {
@@ -496,7 +498,7 @@ static void RegisterBankAccountDebits(BankAccount bankAccount)
     bankAccount.RegisterDebit(new DateTime(2022, 03, 28), 9.1m, "VDC-RATHMINES OMNI ");
 }
 
-static CreditCard CreateCreditCard(EasyFinanceDbContext context)
+static CreditCard CreateCreditCard(CreditCardsDbContext context)
 {
     var id = new CreditCardId(Guid.Parse("5395CE24-2C9A-4DDD-8838-52D02890CEC1"));
     var name = "Test credit card";
@@ -510,7 +512,7 @@ static CreditCard CreateCreditCard(EasyFinanceDbContext context)
     return creditCard;
 }
 
-static void RegisterCreditCardPayments(EasyFinanceDbContext context, CreditCard creditCard)
+static void RegisterCreditCardPayments(CreditCardsDbContext context, CreditCard creditCard)
 {
     context.CreditCardTransactions.AddRange(
         CreditCardTransaction.CreatePayment(new DateTime(2020, 04, 20), 1000.00m, "PAYMENT THANK YOU", creditCard.Id),
@@ -547,7 +549,7 @@ static void RegisterCreditCardPayments(EasyFinanceDbContext context, CreditCard 
     );
 }
 
-static void RegisterCreditCardExpenses(EasyFinanceDbContext context, CreditCard creditCard)
+static void RegisterCreditCardExpenses(CreditCardsDbContext context, CreditCard creditCard)
 {
     context.CreditCardTransactions.AddRange(
         // Apr 2020

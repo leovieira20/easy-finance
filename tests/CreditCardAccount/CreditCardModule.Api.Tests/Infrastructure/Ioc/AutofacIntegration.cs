@@ -7,7 +7,7 @@ using CreditCardModule.Api.Tests.Infrastructure.Web;
 using CreditCardModule.Domain;
 using CreditCardModule.Api.Tests.Steps;
 using CreditCardModule.Db.SqlServer;
-using Db.SqlServer;
+using CreditCardModule.Db.SqlServer.EF;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -30,13 +30,13 @@ public class AutofacIntegration
             .SingleInstance();
 
         var dbContextOptionsExtensions = new Dictionary<Type, IDbContextOptionsExtension>();
-        var dbContextOptions = new DbContextOptions<EasyFinanceDbContext>(dbContextOptionsExtensions);
+        var dbContextOptions = new DbContextOptions<CreditCardsDbContext>(dbContextOptionsExtensions);
         
-        var dbContextOptionsBuilder = new DbContextOptionsBuilder<EasyFinanceDbContext>(dbContextOptions)
+        var dbContextOptionsBuilder = new DbContextOptionsBuilder<CreditCardsDbContext>(dbContextOptions)
             .UseInMemoryDatabase("InMemoryDbForTesting");
         
         builder
-            .RegisterType<EasyFinanceDbContext>()
+            .RegisterType<CreditCardsDbContext>()
             .WithParameter("options", dbContextOptionsBuilder.Options)
             .InstancePerLifetimeScope();
 

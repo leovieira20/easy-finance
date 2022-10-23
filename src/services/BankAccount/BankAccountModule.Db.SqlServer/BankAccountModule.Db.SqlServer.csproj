@@ -11,7 +11,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Db.SqlServer\Db.SqlServer.csproj" />
       <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     </ItemGroup>
 </Project>

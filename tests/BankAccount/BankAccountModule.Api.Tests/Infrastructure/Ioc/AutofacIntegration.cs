@@ -5,7 +5,7 @@ using Autofac;
 using BankAccountModule.Api.Tests.Infrastructure.Clients;
 using BankAccountModule.Api.Tests.Infrastructure.Web;
 using BankAccountModule.Api.Tests.Steps;
-using Db.SqlServer;
+using BankAccountModule.Db.SqlServer.EF;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -28,13 +28,13 @@ public class AutofacIntegration
             .SingleInstance();
 
         var dbContextOptionsExtensions = new Dictionary<Type, IDbContextOptionsExtension>();
-        var dbContextOptions = new DbContextOptions<EasyFinanceDbContext>(dbContextOptionsExtensions);
+        var dbContextOptions = new DbContextOptions<BankAccountsDbContext>(dbContextOptionsExtensions);
         
-        var dbContextOptionsBuilder = new DbContextOptionsBuilder<EasyFinanceDbContext>(dbContextOptions)
+        var dbContextOptionsBuilder = new DbContextOptionsBuilder<BankAccountsDbContext>(dbContextOptions)
             .UseInMemoryDatabase("InMemoryDbForTesting");
         
         builder
-            .RegisterType<EasyFinanceDbContext>()
+            .RegisterType<BankAccountsDbContext>()
             .WithParameter("options", dbContextOptionsBuilder.Options)
             .InstancePerLifetimeScope();
 

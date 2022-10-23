@@ -1,7 +1,7 @@
 using BankAccountModule.Application.RegisterBankAccount;
 using BankAccountModule.Db.SqlServer;
-using Db.SqlServer;
-using Db.SqlServer.EF;
+using BankAccountModule.Db.SqlServer.EF;
+using Db.SqlServer.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -23,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-builder.Services.AddDbContext<EasyFinanceDbContext>(options =>
+builder.Services.AddDbContext<BankAccountsDbContext>(options =>
 {
     options
         .ReplaceService<IValueConverterSelector, StronglyTypedIdValueConverterSelector>()

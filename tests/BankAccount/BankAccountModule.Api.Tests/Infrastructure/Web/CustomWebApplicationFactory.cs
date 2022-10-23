@@ -1,5 +1,5 @@
 using System.Linq;
-using Db.SqlServer;
+using BankAccountModule.Db.SqlServer.EF;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +16,10 @@ public class CustomWebApplicationFactory<Program> : WebApplicationFactory<Progra
         builder.ConfigureServices(services =>
         {
             var dbContextDescriptor = services
-                .SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<EasyFinanceDbContext>));
+                .SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<BankAccountsDbContext>));
             services.Remove(dbContextDescriptor!);
             
-            services.AddDbContext<EasyFinanceDbContext>(options =>
+            services.AddDbContext<BankAccountsDbContext>(options =>
             {
                 options.UseInMemoryDatabase("InMemoryDbForTesting");
             });
@@ -28,7 +28,7 @@ public class CustomWebApplicationFactory<Program> : WebApplicationFactory<Progra
 
             using var scope = sp.CreateScope();
             var scopedServices = scope.ServiceProvider;
-            var db = scopedServices.GetRequiredService<EasyFinanceDbContext>();
+            var db = scopedServices.GetRequiredService<BankAccountsDbContext>();
 
             db.Database.EnsureCreated();
         });
