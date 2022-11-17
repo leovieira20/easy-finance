@@ -1,4 +1,4 @@
-using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Application;
 using BankAccountModule.Db.SqlServer;
 using BankAccountModule.Db.SqlServer.EF;
 using Db.SqlServer.Common;
@@ -34,9 +34,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(typeof(RegisterBankAccountCommand));
+builder.Services.AddMediatR(typeof(RegisterBankAccount.Command));
 
-BankAccountsSqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
+BankAccountsSqlServerModule.RegisterDependencies(builder.Services);
 
 var app = builder.Build();
 

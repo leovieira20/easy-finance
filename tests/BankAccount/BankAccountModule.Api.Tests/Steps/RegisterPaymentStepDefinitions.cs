@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using BankAccountModule.Api.Tests.Infrastructure.Clients;
-using BankAccountModule.Application.RegisterDepositToBankAccount;
+using BankAccountModule.Application.Models;
 using BankAccountModule.Domain;
 using FluentAssertions;
 using TechTalk.SpecFlow;

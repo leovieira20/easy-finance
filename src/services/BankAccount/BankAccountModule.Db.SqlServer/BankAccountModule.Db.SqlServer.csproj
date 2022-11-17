@@ -5,12 +5,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 
     <ItemGroup>
         <InternalsVisibleTo Include="EasyFinance.Web.Tests.Integration" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Db.SqlServer.Common\Db.SqlServer.Common.csproj" />
       <ProjectReference Include="..\BankAccountModule.Domain\BankAccountModule.Domain.csproj" />
     </ItemGroup>
 

@@ -1,5 +1,5 @@
 using CreditCardModule.Api.Models.Input;
-using CreditCardModule.Application.GetTransactions;
+using CreditCardModule.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +18,7 @@ public class TransactionsController : Controller
     [HttpGet]
     public async Task<IActionResult> Get([FromBody] GetTransactionsRequest request)
     {
-        var result = await _mediator.Send(new GetTransactionsCommand(request.CreditCardId, request.StartDate, request.EndDate));
+        var result = await _mediator.Send(new GetCreditCardTransactions.Query(request.CreditCardId, request.StartDate, request.EndDate));
         return Ok(result);
     }
 }

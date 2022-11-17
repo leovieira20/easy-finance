@@ -3,7 +3,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CreditCardModule.Api.Models.Input;
 using CreditCardModule.Api.Tests.Infrastructure.Web;
-using CreditCardModule.Application.Register;
+using CreditCardModule.Application.Models;
 
 namespace CreditCardModule.Api.Tests.Infrastructure.Clients;
 

@@ -1,7 +1,5 @@
 using BankAccountModule.Api.Models.Input;
-using BankAccountModule.Application.GetBankAccountTransactions;
-using BankAccountModule.Application.RegisterDepositToBankAccount;
-using BankAccountModule.Application.RegisterPaymentToBankAccount;
+using BankAccountModule.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +21,7 @@ public class BankAccountTransactionController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var transactions = await _mediator.Send(new GetBankAccountTransactionsCommand(request.BankAccountId));
+        var transactions = await _mediator.Send(new GetBankAccountTransactions.Query(request.BankAccountId));
 
         return Ok(transactions);
     }
@@ -35,7 +33,7 @@ public class BankAccountTransactionController : ControllerBase
             return BadRequest(ModelState);
 
         var response = await _mediator
-            .Send(new RegisterDepositToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
+            .Send(new RegisterDepositToBankAccount.Command(request.BankAccountId, request.Amount, request.Date));
 
         return Ok(response);
     }
@@ -47,7 +45,7 @@ public class BankAccountTransactionController : ControllerBase
             return BadRequest(ModelState);
 
         var response = await _mediator
-            .Send(new RegisterPaymentToBankAccountCommand(request.BankAccountId, request.Amount, request.Date));
+            .Send(new RegisterPaymentToBankAccount.Command(request.BankAccountId, request.Amount, request.Date));
 
         return Ok(response);
     }

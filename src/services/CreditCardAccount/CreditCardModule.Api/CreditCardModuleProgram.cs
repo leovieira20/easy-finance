@@ -1,4 +1,4 @@
-using CreditCardModule.Application.Register;
+using CreditCardModule.Application;
 using CreditCardModule.Db.SqlServer;
 using CreditCardModule.Db.SqlServer.EF;
 using Db.SqlServer.Common;
@@ -34,9 +34,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(typeof(RegisterCreditCardCommand));
+builder.Services.AddMediatR(typeof(RegisterCreditCard.Command));
 
-CreditCardSqlServerModuleBootstrapper.RegisterDependencies(builder.Services);
+CreditCardSqlServerModule.RegisterDependencies(builder.Services);
 
 var app = builder.Build();
 

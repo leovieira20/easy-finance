@@ -1,5 +1,5 @@
 using BankAccountModule.Api.Models.Input;
-using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +21,7 @@ public class BankAccountController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var response = await _mediator.Send(new RegisterBankAccountCommand(request.Name));
+        var response = await _mediator.Send(new RegisterBankAccount.Command(request.Name));
 
         return Ok(response);
     }

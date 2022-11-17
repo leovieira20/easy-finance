@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CreditCardModule.Api.Tests.Infrastructure.Clients;
-using CreditCardModule.Application.Overview;
+using CreditCardModule.Application.Models;
 using CreditCardModule.Domain;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

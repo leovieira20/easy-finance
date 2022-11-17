@@ -1,5 +1,5 @@
 using CreditCardModule.Api.Models.Input;
-using CreditCardModule.Application.Register;
+using CreditCardModule.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +18,7 @@ public class CreditCardController : ControllerBase
     [HttpPost("[action]")]
     public async Task<IActionResult> Register([FromBody] RegisterCreditCardRequest request)
     {
-        var response = await _mediator.Send(new RegisterCreditCardCommand(request.Name));
+        var response = await _mediator.Send(new RegisterCreditCard.Command(request.Name));
         
         return Ok(response);
     }

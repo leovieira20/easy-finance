@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CreditCardModule.Api.Tests.Infrastructure.Web;
-using CreditCardModule.Application.Overview;
+using CreditCardModule.Application.Models;
 using CreditCardModule.Domain;
 
 namespace CreditCardModule.Api.Tests.Infrastructure.Clients;

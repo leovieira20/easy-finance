@@ -24,10 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Output" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\..\Db.SqlServer.Common\Db.SqlServer.Common.csproj" />
       <ProjectReference Include="..\..\..\Web.Common\Web.Common.csproj" />
       <ProjectReference Include="..\BankAccountModule.Application\BankAccountModule.Application.csproj" />

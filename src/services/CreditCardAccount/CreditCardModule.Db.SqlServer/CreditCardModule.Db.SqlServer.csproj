@@ -7,14 +7,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
         <InternalsVisibleTo Include="CreditCardModule.Api.Tests" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Db.SqlServer.Common\Db.SqlServer.Common.csproj" />
       <ProjectReference Include="..\CreditCardModule.Domain\CreditCardModule.Domain.csproj" />
     </ItemGroup>
 </Project>

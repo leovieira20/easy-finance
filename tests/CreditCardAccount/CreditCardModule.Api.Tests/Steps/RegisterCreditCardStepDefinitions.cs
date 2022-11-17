@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CreditCardModule.Api.Tests.Infrastructure.Clients;
-using CreditCardModule.Application.Register;
+using CreditCardModule.Application.Models;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 

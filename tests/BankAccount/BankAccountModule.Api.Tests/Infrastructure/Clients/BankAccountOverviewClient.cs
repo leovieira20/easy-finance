@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using BankAccountModule.Api.Tests.Infrastructure.Web;
-using BankAccountModule.Application.GetBankAccountOverview;
+using BankAccountModule.Application.Models;
 using CreditCardModule.Api;
 
 namespace BankAccountModule.Api.Tests.Infrastructure.Clients;

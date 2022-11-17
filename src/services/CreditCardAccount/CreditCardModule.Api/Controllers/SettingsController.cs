@@ -1,6 +1,4 @@
-using CreditCardModule.Application.SetDefaultPaymentAmount;
-using CreditCardModule.Application.SetLimit;
-using CreditCardModule.Application.SetThreshold;
+using CreditCardModule.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +17,7 @@ public class SettingsController : ControllerBase
     [HttpPut("[action]/{creditCardId}")]
     public async Task<IActionResult> SetLimit(Guid creditCardId, [FromBody] decimal limitAmount)
     {
-        var response = await _mediator.Send(new SetCreditCardLimitCommand(creditCardId, limitAmount));
+        var response = await _mediator.Send(new SetCreditCardLimit.Command(creditCardId, limitAmount));
 
         return Ok(response);
     }
@@ -27,7 +25,7 @@ public class SettingsController : ControllerBase
     [HttpPut("[action]/{creditCardId}")]
     public async Task<IActionResult> SetThreshold(Guid creditCardId, [FromBody] decimal limitAmount)
     {
-        var response = await _mediator.Send(new SetCreditCardThresholdCommand(creditCardId, limitAmount));
+        var response = await _mediator.Send(new SetCreditCardThresholdLimit.Command(creditCardId, limitAmount));
 
         return Ok(response);
     }
@@ -35,7 +33,7 @@ public class SettingsController : ControllerBase
     [HttpPut("[action]/{creditCardId}")]
     public async Task<IActionResult> SetDefaultPaymentAmount(Guid creditCardId, [FromBody] decimal limitAmount)
     {
-        var response = await _mediator.Send(new SetCreditCardDefaultPaymentAmountCommand(creditCardId, limitAmount));
+        var response = await _mediator.Send(new SetCreditCardDefaultPaymentAmount.Command(creditCardId, limitAmount));
 
         return Ok(response);
     }

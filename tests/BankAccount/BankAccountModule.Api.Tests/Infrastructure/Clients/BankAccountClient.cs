@@ -3,7 +3,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using BankAccountModule.Api.Models.Input;
 using BankAccountModule.Api.Tests.Infrastructure.Web;
-using BankAccountModule.Application.RegisterBankAccount;
+using BankAccountModule.Application.Models;
 
 namespace BankAccountModule.Api.Tests.Infrastructure.Clients;
 

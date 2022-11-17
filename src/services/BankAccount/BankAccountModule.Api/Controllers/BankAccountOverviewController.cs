@@ -1,5 +1,5 @@
 using BankAccountModule.Api.Models.Input;
-using BankAccountModule.Application.GetBankAccountOverview;
+using BankAccountModule.Application;
 using BankAccountModule.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +20,7 @@ public class BankAccountOverviewController : ControllerBase
     public async Task<IActionResult> Get(GetBankAccountOverviewRequest request)
     {
         var monthlyBreakdowns = await _mediator
-            .Send(new GetBankAccountOverviewCommand(new BankAccountId(request.Id),
+            .Send(new GetBankAccountOverview.Query(new BankAccountId(request.Id),
                 request.StartDate,
                 request.EndDate));
         
