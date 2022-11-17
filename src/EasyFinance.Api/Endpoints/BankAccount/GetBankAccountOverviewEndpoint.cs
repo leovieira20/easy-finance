@@ -1,5 +1,4 @@
-using BankAccountModule.Application;
-using BankAccountModule.Domain;
+using BankAccounts.Application;
 using FastEndpoints;
 using MediatR;
 
@@ -23,7 +22,7 @@ public class GetBankAccountOverviewEndpoint : Endpoint<GetBankAccountOverviewReq
     public override async Task HandleAsync(GetBankAccountOverviewRequest req, CancellationToken ct)
     {
         var monthlyBreakdowns = await _mediator
-            .Send(new GetBankAccountOverview.Query(new BankAccountId(req.Id),
+            .Send(new GetBankAccountOverview.Query(new(req.Id),
                 req.StartDate,
                 req.EndDate), ct);
         

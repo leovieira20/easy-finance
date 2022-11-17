@@ -1,5 +1,5 @@
-using BankAccountModule.Application;
-using CreditCardModule.Application;
+using BankAccounts.Application;
+using CreditCards.Application;
 using MediatR;
 
 namespace EasyFinance.Api.Infrastructure.Pipeline;

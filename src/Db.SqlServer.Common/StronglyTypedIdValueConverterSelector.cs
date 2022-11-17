@@ -7,7 +7,7 @@ namespace Db.SqlServer.Common
     {
         // The dictionary in the base type is private, so we need our own one here.
         private readonly ConcurrentDictionary<(Type ModelClrType, Type ProviderClrType), ValueConverterInfo> _converters
-            = new ConcurrentDictionary<(Type ModelClrType, Type ProviderClrType), ValueConverterInfo>();
+            = new();
 
         public StronglyTypedIdValueConverterSelector(ValueConverterSelectorDependencies dependencies) : base(dependencies)
         { }
@@ -41,7 +41,7 @@ namespace Db.SqlServer.Common
                                 info => (ValueConverter)Activator.CreateInstance(converterType, info.MappingHints);
 
                         // Build the info for our strongly-typed ID => Guid converter
-                        return new ValueConverterInfo(modelClrType, typeof(Guid), factory);
+                        return new(modelClrType, typeof(Guid), factory);
                         }
                     );
                 }

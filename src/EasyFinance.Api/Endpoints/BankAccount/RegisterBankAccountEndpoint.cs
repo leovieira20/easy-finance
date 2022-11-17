@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using BankAccountModule.Application;
+using BankAccounts.Application;
 using FastEndpoints;
 using MediatR;
 

@@ -1,4 +1,4 @@
-using CreditCardModule.Application;
+using CreditCards.Application;
 using FastEndpoints;
 using MediatR;
 

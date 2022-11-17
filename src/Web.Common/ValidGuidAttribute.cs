@@ -12,7 +12,7 @@ public class ValidGuidAttribute : ValidationAttribute
         
         if (guid.Equals(Guid.Empty))
         {
-            return new ValidationResult(GetErrorMessage());
+            return new(GetErrorMessage());
         }
 
         return ValidationResult.Success;

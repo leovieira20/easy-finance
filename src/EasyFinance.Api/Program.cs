@@ -1,5 +1,5 @@
-using BankAccountModule.Db.SqlServer;
-using CreditCardModule.Db.SqlServer;
+using BankAccounts.Db.SqlServer;
+using CreditCards.Db.SqlServer;
 using FastEndpoints;
 using EasyFinance.Api.Infrastructure.Pipeline;
 

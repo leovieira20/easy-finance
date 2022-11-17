@@ -26,27 +26,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BankAccount", "BankAccount"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreditCardAccount", "CreditCardAccount", "{9AF879E2-D78B-4F1C-994F-687C07B593BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Api", "src\services\BankAccount\BankAccountModule.Api\BankAccountModule.Api.csproj", "{5C63E4FA-FA8C-4037-89AA-F7BA83D1BF65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Api", "src\services\BankAccount\BankAccounts.Api\BankAccounts.Api.csproj", "{5C63E4FA-FA8C-4037-89AA-F7BA83D1BF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Application", "src\services\BankAccount\BankAccountModule.Application\BankAccountModule.Application.csproj", "{8CA5ABAA-FDA9-4421-AFE0-CDCF39A9BADE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Application", "src\services\BankAccount\BankAccounts.Application\BankAccounts.Application.csproj", "{8CA5ABAA-FDA9-4421-AFE0-CDCF39A9BADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Domain", "src\services\BankAccount\BankAccountModule.Domain\BankAccountModule.Domain.csproj", "{560A6B08-3426-4BC7-A0D0-90098E0BAF66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Domain", "src\services\BankAccount\BankAccounts.Domain\BankAccounts.Domain.csproj", "{560A6B08-3426-4BC7-A0D0-90098E0BAF66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Api.Tests", "tests\BankAccount\BankAccountModule.Api.Tests\BankAccountModule.Api.Tests.csproj", "{C1945D76-D232-46A3-B65F-C0F0AAD0A7BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Api.Tests", "tests\BankAccount\BankAccounts.Api.Tests\BankAccounts.Api.Tests.csproj", "{C1945D76-D232-46A3-B65F-C0F0AAD0A7BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Domain.Tests.Unit", "tests\BankAccount\BankAccountModule.Domain.Tests.Unit\BankAccountModule.Domain.Tests.Unit.csproj", "{8D43BB21-4E44-456E-9E0E-09718C02EF83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Domain.Tests.Unit", "tests\BankAccount\BankAccounts.Domain.Tests.Unit\BankAccounts.Domain.Tests.Unit.csproj", "{8D43BB21-4E44-456E-9E0E-09718C02EF83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Api.Tests", "tests\CreditCardAccount\CreditCardModule.Api.Tests\CreditCardModule.Api.Tests.csproj", "{ECFB7D60-0A08-47A4-86F4-99037244E218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Api.Tests", "tests\CreditCardAccount\CreditCards.Api.Tests\CreditCards.Api.Tests.csproj", "{ECFB7D60-0A08-47A4-86F4-99037244E218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Domain.Tests.Unit", "tests\CreditCardAccount\CreditCardModule.Domain.Tests.Unit\CreditCardModule.Domain.Tests.Unit.csproj", "{D90E935B-5A3A-45C4-ACFD-0548B9652855}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Domain.Tests.Unit", "tests\CreditCardAccount\CreditCards.Domain.Tests.Unit\CreditCards.Domain.Tests.Unit.csproj", "{D90E935B-5A3A-45C4-ACFD-0548B9652855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Api", "src\services\CreditCardAccount\CreditCardModule.Api\CreditCardModule.Api.csproj", "{61F45E51-6397-46AC-AF1F-682809B81F39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Api", "src\services\CreditCardAccount\CreditCards.Api\CreditCards.Api.csproj", "{61F45E51-6397-46AC-AF1F-682809B81F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Application", "src\services\CreditCardAccount\CreditCardModule.Application\CreditCardModule.Application.csproj", "{24D97732-279F-4708-B0A5-15FD0F5D319F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Application", "src\services\CreditCardAccount\CreditCards.Application\CreditCards.Application.csproj", "{24D97732-279F-4708-B0A5-15FD0F5D319F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Db.SqlServer", "src\services\CreditCardAccount\CreditCardModule.Db.SqlServer\CreditCardModule.Db.SqlServer.csproj", "{0D960176-C8C1-45DC-95C3-E6F5DAC1F1B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Db.SqlServer", "src\services\CreditCardAccount\CreditCards.Db.SqlServer\CreditCards.Db.SqlServer.csproj", "{0D960176-C8C1-45DC-95C3-E6F5DAC1F1B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardModule.Domain", "src\services\CreditCardAccount\CreditCardModule.Domain\CreditCardModule.Domain.csproj", "{4D095630-4638-40C6-ADBC-2D9354B41A25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Domain", "src\services\CreditCardAccount\CreditCards.Domain\CreditCards.Domain.csproj", "{4D095630-4638-40C6-ADBC-2D9354B41A25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "src\services\Gateway\Gateway.csproj", "{BCCB466A-1CEA-4D6C-963D-82FA16E259F4}"
 EndProject
@@ -54,11 +54,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Common", "src\Web.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db.SqlServer.SeedData", "src\Db.SqlServer.SeedData\Db.SqlServer.SeedData.csproj", "{BB2A8A38-6961-44E1-825C-A29132CDB54C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccountModule.Db.SqlServer", "src\services\BankAccount\BankAccountModule.Db.SqlServer\BankAccountModule.Db.SqlServer.csproj", "{EA1B0A05-D18C-41C7-92C3-984820DEE992}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Db.SqlServer", "src\services\BankAccount\BankAccounts.Db.SqlServer\BankAccounts.Db.SqlServer.csproj", "{EA1B0A05-D18C-41C7-92C3-984820DEE992}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Db.SqlServer.Common", "src\Db.SqlServer.Common\Db.SqlServer.Common.csproj", "{F115F440-880A-4C8B-8027-9B7B2441DEBB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFinance.Api", "src\EasyFinance.Api\EasyFinance.Api.csproj", "{530D8477-94AC-4356-B6CF-8A43BB93EB34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Application.Tests.Acceptance", "tests\BankAccount\BankAccounts.Application.Tests.Acceptance\BankAccounts.Application.Tests.Acceptance.csproj", "{028C8F70-51F9-4077-8AA8-A135F45BA39B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +171,12 @@ Global
 		{530D8477-94AC-4356-B6CF-8A43BB93EB34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{530D8477-94AC-4356-B6CF-8A43BB93EB34}.IntegrationTests|Any CPU.ActiveCfg = Debug|Any CPU
 		{530D8477-94AC-4356-B6CF-8A43BB93EB34}.IntegrationTests|Any CPU.Build.0 = Debug|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.IntegrationTests|Any CPU.ActiveCfg = Debug|Any CPU
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B}.IntegrationTests|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DE9F3B79-771D-4F22-8707-3C4ED95D02F4} = {6097750C-A7D6-486D-A176-3AB0F9820549}
@@ -194,5 +202,6 @@ Global
 		{EA1B0A05-D18C-41C7-92C3-984820DEE992} = {9D9873EB-36C3-4258-A5F1-E2584D5D088A}
 		{F115F440-880A-4C8B-8027-9B7B2441DEBB} = {3A2E6D77-39E8-464A-A857-5DDF129436F8}
 		{530D8477-94AC-4356-B6CF-8A43BB93EB34} = {9EE2E1F4-F379-4F5A-A48F-E7470076EBB9}
+		{028C8F70-51F9-4077-8AA8-A135F45BA39B} = {0F115380-99AD-47E1-B73D-5EBD214755F1}
 	EndGlobalSection
 EndGlobal

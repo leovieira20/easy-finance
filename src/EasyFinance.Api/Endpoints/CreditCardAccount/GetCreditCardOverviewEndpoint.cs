@@ -1,5 +1,4 @@
-using CreditCardModule.Application;
-using CreditCardModule.Domain;
+using CreditCards.Application;
 using FastEndpoints;
 using MediatR;
 
@@ -22,7 +21,7 @@ public class GetCreditCardOverviewEndpoint : Endpoint<CreditCardOverviewRequest>
 
     public override async Task HandleAsync(CreditCardOverviewRequest req, CancellationToken ct)
     {
-        var response = await _mediator.Send(new GetCreditCardOverview.Query(new CreditCardId(req.Id), req.StartDate, req.EndDate), ct);
+        var response = await _mediator.Send(new GetCreditCardOverview.Query(new(req.Id), req.StartDate, req.EndDate), ct);
 
         await SendOkAsync(response, ct);
     }
